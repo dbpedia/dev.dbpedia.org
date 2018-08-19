@@ -5,4 +5,4 @@
 layout: page
 ---
 
-Explore the DBpedia Databus
+In this DBpedia Development Wiki realted git projects information is collected.
