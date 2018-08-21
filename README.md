@@ -10,22 +10,22 @@ jekyll curl crontab
 git clone https://github.com/dbpedia/dev.dbpedia.org.git
 cd dev.dbpedia.org
 
-mkdir jekyll
-jekyll new jekyll/
-cp src/* jekyll
-cd jekyll 
-# add -H 0.0.0.0 for external access 
+# added -H 0.0.0.0 for external access 
 jekyll serve -H 0.0.0.0 -P 4444
 ```
 
-It is possible to serve the generated jekyll/_site/ folder as html.
+It is possible to serve only the generated `_site/` folder as html.
 
-Finally add following cronjob.
+Add entry to you crontab.
 ```
-* 0 * * * path/to/generate-markdown.sh
+crontab -l > tmpcron
+# skip first line if crontab is empty
+echo "* 0 * * * path/to/generate-markdown.sh" >> tmpcron
+crontab tmpcron
+rm tmpcron
 ```
 
-## Docker
+## Docker ( Deprecated at the moment )
 ```
 git clone https://github.com/dbpedia/dev.dbpedia.org.git
 cd dev.dbpedia.org

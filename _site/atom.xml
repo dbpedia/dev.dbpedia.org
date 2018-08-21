@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>DBpedia Development</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2018-08-21T17:56:24+02:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Marvin Hofer</name>
+   <email>hofer@informatik.uni-leipzig.de</email>
+ </author>
+
+ 
+  
+ 
+  
+   <entry>
+     <title>About</title>
+     <link href="http://localhost:4000/about/"/>
+     
+     
+   </entry>
+  
+ 
+  
+ 
+  
+   <entry>
+     <title>Section A</title>
+     <link href="http://localhost:4000/chapter/sectionA"/>
+     
+     
+   </entry>
+  
+ 
+  
+   <entry>
+     <title>Section B</title>
+     <link href="http://localhost:4000/chapter/sectionB"/>
+     
+     
+   </entry>
+  
+ 
+  
+   <entry>
+     <title>Chapter</title>
+     <link href="http://localhost:4000/chapter/"/>
+     
+     
+   </entry>
+  
+ 
+  
+ 
+
+</feed>

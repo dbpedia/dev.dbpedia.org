@@ -1,0 +1,20 @@
+
+
+# Setup
+title:               DBpedia Development
+tagline:             'The DBpedia development platform'
+url:                 'http://dev.dbpedia.org'
+description:         'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that is based on <a href="http://lanyon.getpoole.com/" target="_blank">Lanyon</a>. Made by <a
+href="" target="_blank">@vehnem</a>.'
+baseurl:             'http://dev.dbpedia.org'
+
+permalink:           pretty
+
+# About/contact
+author:
+  name:              Marvin Hofer
+# url:
+  email:             hofer@informatik.uni-leipzig.de
+
+# Custom vars
+version:             1.0.0

@@ -1,0 +1,44 @@
+<div class="sidebar">
+  <div class="sidebar-item">
+    <p>{{ site.description }}</p>
+  </div>
+
+    <a class="sidebar-nav-item" href="{{ site.baseurl }}/">Home</a>
+
+    {% assign pageparent = page.parent | downcase %}
+    {% assign pages_list = site.pages | sort:"url" %}
+
+    {% for node in pages_list %}
+      {% if node.title != null %}
+        {% if node.layout == "page" %}
+          {% assign nodetitle = node.title | downcase %}
+          {% if page.url == node.url or pageparent == nodetitle%}
+            <a class="sidebar-nav-item active" href="{{ node.url }}">{{ node.title }}</a>
+            {% for subnode in pages_list %}
+              {% if node.title != null %}
+                {% assign subparent = subnode.parent | downcase %}
+                {% if  nodetitle ==  subparent %}
+                  {% if subnode.url == page.url %}
+                    <a class="sidebar-nav-item active" href="{{ subnode.url }}"><div class="sub-item">{{ subnode.title }}</div></a>
+                  {% else %}
+                    <a class="sidebar-nav-item" href="{{ subnode.url }}"><div class="sub-item">{{ subnode.title }}</div></a>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <a class="sidebar-nav-item" href="{{ node.url }}">{{ node.title }}</a>
+          {% endif %}
+        {% endif%}
+      {% endif %}
+    {% endfor %}
+
+
+
+  <!--<a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>-->
+  <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+
+  <p style="margin: 0 10px">
+    &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+  </p>
+</div>
