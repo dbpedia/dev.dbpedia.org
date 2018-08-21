@@ -4,8 +4,7 @@
 title:               DBpedia Development
 tagline:             'The DBpedia development platform'
 url:                 'http://dev.dbpedia.org'
-description:         'A reserved <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that is based on <a href="http://lanyon.getpoole.com/" target="_blank">Lanyon</a>. Made by <a
-href="" target="_blank">@vehnem</a>.'
+description:          'Short and smart description about this site. Visit <a href="https://wiki.dbpedia.org/blog/dbpedia-databus-%E2%80%93-transforming-linked-data-networked-data-economy" target="_blank">The DBpedia Databus</a> for more information.'
 baseurl:             'http://dev.dbpedia.org'
 
 permalink:           pretty
