@@ -6,7 +6,7 @@
     <a class="sidebar-nav-item" href="{{ site.baseurl }}/">Home</a>
 
     {% assign pageparent = page.parent | downcase %}
-    {% assign pages_list = site.pages | sort:"url" %}
+    {% assign pages_list = site.pages | sort:"title" %}
 
     {% for node in pages_list %}
       {% if node.title != null %}
