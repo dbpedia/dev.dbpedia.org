@@ -9,8 +9,9 @@ jekyll curl crontab
 ```
 git clone https://github.com/dbpedia/dev.dbpedia.org.git
 cd dev.dbpedia.org
+./generate-markdown.sh
 
-# added -H 0.0.0.0 for external access 
+# -H 0.0.0.0 for external access 
 jekyll serve -H 0.0.0.0 -P 4444
 ```
 
