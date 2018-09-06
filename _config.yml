@@ -1,10 +1,10 @@
 
 
 # Setup
-title:               DBpedia Development
-tagline:             'The DBpedia development platform'
+title:               DBpedia Development Wiki
+tagline:             'devilopment bible'
 url:                 'http://dev.dbpedia.org'
-description:          'Short and smart description about this site. Visit <a href="https://wiki.dbpedia.org/blog/dbpedia-databus-%E2%80%93-transforming-linked-data-networked-data-economy" target="_blank">The DBpedia Databus</a> for more information.'
+description:          'A central collection of everything DBpedia.<img src="https://wiki.dbpedia.org/sites/default/files/DBpediaLogoFull.png"></img>'
 baseurl:             'http://dev.dbpedia.org'
 
 permalink:           pretty
