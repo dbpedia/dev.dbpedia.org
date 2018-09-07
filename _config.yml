@@ -4,8 +4,8 @@
 title:               DBpedia Development Wiki
 tagline:             'devilopment bible'
 url:                 'http://dev.dbpedia.org'
-description:          'A central collection of everything DBpedia.<img src="https://wiki.dbpedia.org/sites/default/files/DBpediaLogoFull.png"></img>'
-baseurl:             'http://dev.dbpedia.org'
+description:          'A central collection of everything DBpedia.<img style="margin-top:15px;" src="https://wiki.dbpedia.org/sites/default/files/DBpediaLogoFull.png"></img>'
+baseurl:             ''
 
 permalink:           pretty
 
