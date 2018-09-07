@@ -21,6 +21,16 @@ For own content edit or add files in the `content` folder or expand the `readme-
 
 To generate a new page, the `readme-list.csv` contains the headlines and the links to the external markdown files separated by a tabulator.
 
+### Sidebar
+Configured in `_includes/sidebar.html`.
+Sorted alphabetically with the following code
+```
+...
+{% assign pages_list = site.pages | sort:"title" %}
+...
+```
+
+
 ### Automatic Update
 To update external markdown every hour, add following entry to your crontab.
 ```
