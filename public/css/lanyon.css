@@ -46,11 +46,19 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   color: #313131;
   letter-spacing: -.025rem;
 }
 
+.page h1 {
+  font-weight: 400;
+}
+
+
+img {
+  background-color: white;
+}
 /*
  * Wrapper
  *
@@ -108,7 +116,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 14rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .875rem; /* 15px */
-  color: rgba(255,255,255,.6);
+  /*color: rgba(255,255,255,.6);*/
+  /*sidebartext*/
+  color: rgba(255,255,255,1);
   background-color: #202020;
 }
 
@@ -485,15 +495,16 @@ a.pagination-item:hover {
 .theme-base-night .sidebar,
 .theme-base-night .sidebar-toggle:active,
 .theme-base-night #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #202020;
+  background-color: #2B4253;
 }
 .theme-base-night .container a,
 .theme-base-night .sidebar-toggle,
 .theme-base-night .related-posts li a:hover {
-  color: #527af4;
+  color: #2A8A75;
 }
 
 .theme-base-night .sidebar a {
-  color: #007bff;
+  /*color: #007bff;*/
+  color: white;
 }
 
