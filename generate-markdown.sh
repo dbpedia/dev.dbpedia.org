@@ -7,4 +7,4 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 	echo -e "---\nlayout: readme\ntitle: \"$entryname\"\npermalink: \"$entryname\"\n---\n" > "content/$entryname.md"
 	echo 'This page was included from <a target="_blank" href="'$repourl'">'$repourl'</a>.' >> "content/$entryname.md"
 	curl -s $readmeurl >> "content/$entryname.md"
-done < readme-list.tsv
+done < <(tail -n+2 readme-list.tsv)
