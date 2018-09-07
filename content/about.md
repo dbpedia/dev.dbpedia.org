@@ -8,7 +8,7 @@ permalink: /
 We are currently starting to establish a central documentation wiki for DBpedia.
 
 There are two modes to contribute:
-* write something an commit it at https://github.com/dbpedia/dev.dbpedia.org
+* write something an commit it at <a target="_blank" href="https://github.com/dbpedia/dev.dbpedia.org">https://github.com/dbpedia/dev.dbpedia.org</a>
 * update the README.md of your project and include it here, as is done with <a href="WebID">WebID</a> or <a href="Databus%20Maven%20Plugin">Databus Maven Plugin</a>
 
 
