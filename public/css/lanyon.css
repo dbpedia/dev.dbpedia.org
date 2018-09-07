@@ -47,13 +47,13 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   color: #313131;
   letter-spacing: -.025rem;
 }
 
-.page h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
+.masthead .container h3 {
+  font-weight: 700;
 }
 
 
