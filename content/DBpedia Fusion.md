@@ -21,7 +21,7 @@ source related URIs for entities are rewritten to the DBpedia global identifiers
 
 For each source dataset a enriched version based on the fused data is created. 
 The enrichment process adds missing information only to the resources contained in the source. 
-There are two different cases data is added: In the first case, if a resource in the source data misses properties found in the core data then this properties and its values are added. 
+There are two different cases data is added: In the first case, if a resource in the source data misses properties found in the fused data then this properties and its values are added. 
 The second case manages if the resource already contains properties with different values from the fused data. 
 In this case, if the properties are determined as functional properties, then add nothing, otherwise add all values. 
 This ensures that existing values from source datasets stay unchanged in their enriched version.
