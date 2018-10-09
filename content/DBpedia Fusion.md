@@ -1,10 +1,13 @@
-
-# Fusion
+---
+layout: page
+title: "DBpedia Fusion"
+permalink: "DBpedia Fusion"
+---
 
 DBpedia-fusion process to fuse internal and external data.
 
-
 ## Produced Data 
+Information about the through the fusion process created datafiles.
 
 ### Fused Data
 
