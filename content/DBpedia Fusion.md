@@ -39,7 +39,7 @@ This ensures that existing values from source datasets stay unchanged in their e
 * This data is generated simultaneously at the data fusion
 * Contains every triples, regardless of whether it is selected or discarded by the fusion function
 * Information about each subject-predicate pair and their values and descending source
-* Information if  a triple  been selected for the fused data
+* Information if a triple has been selected for the fused data
 * Is currently used for the global.dbpedia.org resource web view
 
 ```
