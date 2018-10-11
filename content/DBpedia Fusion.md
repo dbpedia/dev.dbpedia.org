@@ -2,33 +2,40 @@
 # Fusion
 
 DBpedia-fusion process to fuse internal and external data.
+Rewrittes based on the ID management orignal source IRIs to DBpedia global ids.
+Uses the DBpedia global IRI clusters to fuse and enrich the source datasets.
 
-
-## Produced Data 
+## Produced Data
 
 ### Fused Data
 
-This is the main data generated through the fusion process.
-It contains all resources from the input datasets. 
-Overlapping resources are fused with the defined fusion function. Hence, if predicates intended to be a functional
-property, the process keeps only one value and the rest is discarded. All used
-source related URIs for entities are rewritten to the DBpedia global identifiers.
+* Fused data between all input data sources
+* Contains all resource of the input data
+* Fusion function is based on
+    * functional property decision to decide the number of selected values ( owl:FunctinalProperty determination )
+    * value selection based on a preference dependent on the  originated source dataset
+* The goal is to improve data quality and data coverage
 
-### Enriched Data 
+### Enriched Data
 
-For each source dataset a enriched version based on the fused data is created. 
-The enrichment process adds missing information only to the resources contained in the source. 
-There are two different cases data is added: In the first case, if a resource in the source data misses properties found in the core data then this properties and its values are added. 
-The second case manages if the resource already contains properties with different values from the fused data. 
-In this case, if the properties are determined as functional properties, then add nothing, otherwise add all values. 
+* Enriched versions of the input datasets ( e.g. the language specific DBpedia versions )
+* Uses the fused data for the enrichment process
+* Improves entity-properties and -values coverage for resources only contained in the source data
+* There are two different cases data is added:
+    * If a resource in the source data misses properties found in the core data, then this properties and its values are added.
+    * If the resource already contains properties with different values from the fused data.
+In this case, if the properties are determined as functional properties, then add nothing, otherwise add all values.
 This ensures that existing values from source datasets stay unchanged in their enriched version.
+* (  No unknown source entities are added )
 
-### Provenance Data 
+### Provenance Data
 
-To keep track of all triple statements in the fusion process, this data is generated simultaneously. 
-This provenance dataset contains every triples, regardless of whether it is selected or discarded by the fusion function. 
-Further, it contains information about each subject-predicate pair and their values. 
-The information contains the source dataset of a triple and if it has been selected fused data.
+* Keeps track of all triple statements in the fusion process
+* This data is generated simultaneously at the data fusion
+* Contains every triples, regardless of whether it is selected or discarded by the fusion function
+* Information about each subject-predicate pair and their values and descending source
+* Information if  a triple  been selected for the fused data
+* Is currently used for the global.dbpedia.org resource web view
 
 ```
 # Provenance data schema
@@ -58,30 +65,38 @@ The information contains the source dataset of a triple and if it has been selec
 }
 ```
 
-# TODO section 
-
 ## Fusion Methodology
 
-To decide whenever an value relies to a functional predicate or not, for each
-property a global median value is calculated. 
-This median-number is build on the property cardinality inside each resource.
+To decided the number of selected values for a property, a cardinality based median is calculated.
 
 ```
 Example median calculation
 ----
 
-<http://example.com/resource/A> <http://example.com/property> "first value inside of A"@en .
-<http://example.com/resource/A> <http://example.com/property> "second value inside of A"@en .
-<http://example.com/resource/B> <http://example.com/property> "value inside of B"@en .
-<http://example.com/resource/C> <http://example.com/property> "value inside of C"@en .
+@preifx ex : <http://example.org/>
+ex:A
+  ex:property
+    "first value"@en , "second valu"@en .
+ex:B
+  ex:property
+    "value of B"@en .
+ex:C
+  ex:property
+    "value of C"@en .
 
 ----
 => sorted caridinallity sequence(1,1,2)
-=> median for property <http://example.com/property> 1
+=> median for ex:property is 1
 ```
+
+If the property-median-number equals 1 select only one value, otherwise all.
+
+
+To select the right value, the property values are weighted on the trustiness of their originated source datasets.
+
+For example `en.dbpedia > de.dbpedia`, which describes that en.dbpedia is more trustfull then de.dbpedia in case of the fusion szenario.
 
 
 ## Future Development
 
 TODO - combined function of weighted most frequent and preference dataset value
-
