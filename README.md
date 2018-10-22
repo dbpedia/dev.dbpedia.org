@@ -35,7 +35,8 @@ Sorted alphabetically with the following code
 To update external markdown every hour, add following entry to your crontab.
 ```
 crontab -l > tmpcron
-# skip first line if crontab is empty
-echo "* 0 * * * path/to/generate-markdown.sh" >> tmpcron
+# skip first line if crontab is empty.
+# enter dev.dbpedia.org repo folder.
+echo "*/10 * * * * /bin/sh -c 'cd `pwd` && /usr/bin/git pull -q origin master && ./generate-markdown.sh'" >> tmpcron
 crontab tmpcron && rm tmpcron
 ```
