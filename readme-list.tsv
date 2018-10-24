@@ -4,3 +4,4 @@ WebID	https://github.com/dbpedia/webid	https://raw.githubusercontent.com/dbpedia
 Global IRI Resolution Service	https://github.com/dbpedia/dbp-same-thing-service	https://raw.githubusercontent.com/dbpedia/dbp-same-thing-service/master/README.md	
 Extraction Workflow	https://github.com/Termilion/extraction-framework	https://raw.githubusercontent.com/Termilion/extraction-framework/SparkExtraction/extraction-process.md	
 Infobox Provenance Tracking	https://github.com/AKSW/InfoboxProvenanceTracking	https://raw.githubusercontent.com/AKSW/InfoboxProvenanceTracking/master/README.md	Other
+DBpedia Live Mirroring	https://github.com/dbpedia/dbpedia-live-mirror	Live Services
