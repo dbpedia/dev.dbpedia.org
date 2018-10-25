@@ -1,7 +1,7 @@
 ---
 layout: subpage
 title: DBpedia Release Diffs
-permalink: Other/DBpedia Release Diffs
+permalink: DBpedia Release Diffs
 parent: Other
 ---
 
