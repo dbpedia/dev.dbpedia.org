@@ -3,4 +3,5 @@ layout: null #page
 title: Chapter
 ---
 
-this is a page which is invisible because the layout is null
+this is a hierarchical page which is invisible because the layout is null
+subsequentyl all pages using this page as parent are also visible
