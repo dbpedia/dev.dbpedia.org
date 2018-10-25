@@ -17,7 +17,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 		curl -s $readmeurl >> "content/$entryname.md"
 	else
 		echo -e "---\nlayout: subpage\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nparent: \"$parent\"\n---\n" > "content/$entryname.md"
-		echo 'This page was included from <a target="_blank" href="'$repourl'">'$repourl'</a>.' >> "content/$entryname.md"
+		echo -e 'This page was included from <a target="_blank" href="'$repourl'">'$repourl'</a>.\n' >> "content/$entryname.md"
 		curl -s $readmeurl >> "content/$entryname.md"
 	fi
 done < <(tail -n+2 readme-list.tsv)
