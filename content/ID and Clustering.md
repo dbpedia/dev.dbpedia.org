@@ -28,7 +28,7 @@ http://es.dbpedia.org/resource/Málaga    6Mp2    6Mp2
 
 will inform under which IRIs the (fused) information about the entity represented by the cluster will be accessible: Primarily under `<https://global.dbpedia.org/id/6Mp2>`, but also (via redirect) under `<https://global.dbpedia.org/id/2wD4j>`.
 
-Mathematically speaking, `<http://es.dbpedia.org/resource/Málaga>` or respectively `<https://global.dbpedia.org/id/6Mp2>` has been chosen as representantive for the sameAs-equivalence class of
+Mathematically speaking, `<http://es.dbpedia.org/resource/Málaga>` or respectively `<https://global.dbpedia.org/id/6Mp2>` has been chosen as representative for the sameAs-equivalence class of
 
 ```
 { <http://commons.dbpedia.org/resource/Málaga>, <http://es.dbpedia.org/resource/Málaga> }
