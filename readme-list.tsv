@@ -1,13 +1,13 @@
 Title of page	Link to Github repository	Raw link to markdowfile	Parent page
 Databus Maven Plugin	https://github.com/dbpedia/databus-maven-plugin	https://raw.githubusercontent.com/dbpedia/databus-maven-plugin/master/README.md	
-Extraction Workflow	https://github.com/Termilion/extraction-framework	https://raw.githubusercontent.com/Termilion/extraction-framework/SparkExtraction/extraction-process.md
-ID and Clustering		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/test/markdown/ID%20and%20Clustering.md
-Global IRI Resolution Service	https://github.com/dbpedia/dbp-same-thing-service	https://raw.githubusercontent.com/dbpedia/dbp-same-thing-service/master/README.md
-DBpedia Fusion		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/test/markdown/DBpedia%20Fusion.md
-Live Services		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/test/markdown/Live%20Services.md
+Extraction Workflow	https://github.com/Termilion/extraction-framework	https://raw.githubusercontent.com/Termilion/extraction-framework/SparkExtraction/extraction-process.md	
+ID and Clustering		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/ID%20and%20Clustering.md	
+Global IRI Resolution Service	https://github.com/dbpedia/dbp-same-thing-service	https://raw.githubusercontent.com/dbpedia/dbp-same-thing-service/master/README.md	
+DBpedia Fusion		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia%20Fusion.md	
+Live Services		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Live%20Services.md	
 DBpedia Live Mirroring	https://github.com/dbpedia/dbpedia-live-mirror	https://raw.githubusercontent.com/dbpedia/dbpedia-live-mirror/master/README.md	Live Services
-DBpedia Live Continous Extraction		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/test/markdown/DBpedia%20Live%20Continuos%20Extraction.md	Live Services
-Other		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/test/markdown/Other.md
-DBpedia Release Diffs		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/test/markdown/DBpedia%20Release%20Diffs.md	Other
+DBpedia Live Continous Extraction		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia%20Live%20Continuos%20Extraction.md	Live Services
+Other		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Other.md	
+DBpedia Release Diffs		https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia%20Release%20Diffs.md	Other
 Infobox Provenance Tracking	https://github.com/AKSW/InfoboxProvenanceTracking	https://raw.githubusercontent.com/AKSW/InfoboxProvenanceTracking/master/README.md	Other
-WebID	https://github.com/dbpedia/webid	https://raw.githubusercontent.com/dbpedia/webid/master/README.md
+WebID	https://github.com/dbpedia/webid	https://raw.githubusercontent.com/dbpedia/webid/master/README.md	
