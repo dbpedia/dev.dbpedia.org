@@ -17,9 +17,10 @@ jekyll serve -H 0.0.0.0 -P 4444
 It is also possible to serve only the generated `_site/` folder as html.
 
 ### Content
-For own content edit or add files in the `content` folder or expand the `readme-list.tsv` with external markdown files.
+To generate a new page, the `readme-list.csv` contains entries with the attributes: "headline", link to the "external repo", the "direct link to the external markdown file", and if it should be a subsection of a "parent menu entry".
 
-To generate a new page, the `readme-list.csv` contains the headlines and the links to the external markdown files separated by a tabulator.
+To add static content add/edit files in the `markdown` folder and then include it as the same way as the external markdowns in the `readme-list.tsv`.
+
 
 ### Sidebar
 Configured in `_includes/sidebar.html`.
