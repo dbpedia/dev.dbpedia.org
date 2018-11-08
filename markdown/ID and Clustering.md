@@ -1,8 +1,3 @@
----
-layout: page
-title: "ID and Clustering"
-permalink: "ID and Clustering"
----
 A brief tour through structure and meaning of the uploaded files:
 `cluster-groups.tsv.bz2` lists the identity clusters (according to the sameAs assertions in the input data). One cluster per line. The first column gives the global id (decimal representation) that identifies this cluster. An example line:
 

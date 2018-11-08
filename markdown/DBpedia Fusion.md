@@ -1,9 +1,3 @@
----
-layout: page
-title: "DBpedia Fusion"
-permalink: "DBpedia Fusion"
----
-
 # Fusion
 
 DBpedia-fusion process to fuse internal and external data.

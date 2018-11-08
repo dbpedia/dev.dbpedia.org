@@ -6,7 +6,7 @@
     <a class="sidebar-nav-item" href="{{ site.baseurl }}/">About</a>
 
     {% assign pageparent = page.parent | downcase %}
-    {% assign pages_list = site.pages | sort:"title" %}
+    {% assign pages_list = site.pages | sort:"rank" %}
 
     {% for node in pages_list %}
       {% if node.title != null %}
@@ -16,7 +16,7 @@
             <a class="sidebar-nav-item active" href="{{ node.url }}">{{ node.title }}</a>
             {% for subnode in pages_list %}
               {% if node.title != null %}
-                {% assign subparent = subnode.parent | downcase %}
+                {% assign subparent = subnode.parent  | downcase %}
                 {% if  nodetitle ==  subparent %}
                   {% if subnode.url == page.url %}
                     <a class="sidebar-nav-item active" href="{{ subnode.url }}"><div class="sub-item">{{ subnode.title }}</div></a>
