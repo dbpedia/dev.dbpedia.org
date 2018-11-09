@@ -15,18 +15,18 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 
     if [ -n "$repourl" ]
     then
-        includetext=`echo -e 'This page was included from <a target="_blank" href="'$repourl'">'$repourl'</a>.\n'`
+        includetext=`echo 'This page was included from <a target="_blank" href="'$repourl'">'$repourl'</a>.'`
     fi
 	if [ -z "$parent" ]
 	then
 		#echo -e "---\nlayout: readme\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nrank: \"$(echo -n 0$rank)\"\n---\n" > "content/$entryname.md"
 		echo -e "---\nlayout: readme\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nrank: $rank\n---\n" > "content/$entryname.md"
-		echo "$includetext" >> "content/$entryname.md"
+		echo "$includetext\n" >> "content/$entryname.md"
 		curl -s "$readmeurl" >> "content/$entryname.md"
 	else
 		#echo -e "---\nlayout: subpage\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nparent: \"$parent\"\nrank: \"$(echo -n 0$rank)\"\n---\n" > "content/$entryname.md"
 		echo -e "---\nlayout: subpage\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nparent: \"$parent\"\nrank: $rank\n---\n" > "content/$entryname.md"
-		echo "$includetext" >> "content/$entryname.md"
+		echo -e "$includetext\n" >> "content/$entryname.md"
 		curl -s "$readmeurl" >> "content/$entryname.md"
 	fi
 	((rank+=1))
