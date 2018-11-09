@@ -5,14 +5,33 @@ permalink: /
 ---
 
 # About
-We are currently starting to establish a central documentation wiki for DBpedia.
+
+## Status of this collection
+We are currently working on a major renovation of DBpedia, which includes:
+* for developers: being better documented and have clear processes for contribution (this collection)
+* for industry: upgrading the free and open resources to be more reliable and offer reliable services and also models to make money with DBpedia
+* for researchers: better infrastructure to share and build resources together
+
+These are all big goals and they take time, however we aim to have *this collection of documentation in a decent state by end of Dec 2018*. 
+
+
+## Purpose of the DBpedia Development Wiki
+
+DBpedia is the construct of hundreds of very skilled knowledge engineers that work in different areas. DBpedia was established in 2006 and back then we were a very small group that could communicate easily. 
+Now there are hundreds of extensions of the DBpedia infrastructure and a lot more developers and communication has become very fragmented. 
+In order to alleviate this problem, this wiki was created. 
+
+ 
+
+
+## Contributing to this Wiki
 
 There are two modes to contribute:
 * write something an commit it at <a target="_blank" href="https://github.com/dbpedia/dev.dbpedia.org">https://github.com/dbpedia/dev.dbpedia.org</a>
 * update the README.md of your project and include it here, as is done with <a href="WebID">WebID</a> or <a href="Databus%20Maven%20Plugin">Databus Maven Plugin</a>
 
 
-## General overview of DBpedia (what we plan to include here and what state it is in)
+## (Outdated) General overview of DBpedia (what we plan to include here and what state it is in)
 
 * DBpedia Core (Data extraction and releases)
     * Wikidata (working, biweekly, documentation missing)
