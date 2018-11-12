@@ -1,7 +1,7 @@
 # Fusion
 
 DBpedia-fusion process to fuse internal and external data.
-Rewrittes based on the ID management orignal source IRIs to DBpedia global ids.
+Rewrites based on the ID management original source IRIs to DBpedia global ids.
 Uses the DBpedia global IRI clusters to fuse and enrich the source datasets.
 
 ## Produced Data
@@ -23,7 +23,7 @@ Uses the DBpedia global IRI clusters to fuse and enrich the source datasets.
 * There are two different cases data is added:
     * If a resource in the source data misses properties found in the core data, then this properties and its values are added.
     * If the resource already contains properties with different values from the fused data.
-In this case, if the properties are determined as functional properties, then add nothing, otherwise add all values.
+In this case, if the properties are determined as functional properties, then add nothing, otherwise, add all values.
 This ensures that existing values from source datasets stay unchanged in their enriched version.
 * (  No unknown source entities are added )
 
@@ -31,7 +31,7 @@ This ensures that existing values from source datasets stay unchanged in their e
 
 * Keeps track of all triple statements in the fusion process
 * This data is generated simultaneously at the data fusion
-* Contains every triples, regardless of whether it is selected or discarded by the fusion function
+* Contains every triple, regardless of whether it is selected or discarded by the fusion function
 * Information about each subject-predicate pair and their values and descending source
 * Information if a triple has been selected for the fused data
 * Is currently used for the global.dbpedia.org resource web view
@@ -66,7 +66,7 @@ This ensures that existing values from source datasets stay unchanged in their e
 
 ## Fusion Methodology
 
-To decided the number of selected values for a property, a cardinality based median is calculated.
+To decide the number of selected values for a property, a cardinality based median is calculated.
 
 ```
 Example median calculation
@@ -93,9 +93,9 @@ If the property-median-number equals 1 select only one value, otherwise all.
 
 To select the right value, the property values are weighted on the trustiness of their originated source datasets.
 
-For example `en.dbpedia > de.dbpedia`, which describes that en.dbpedia is more trustfull then de.dbpedia in case of the fusion szenario.
+For example `en.dbpedia > de.dbpedia`, which describes that en.dbpedia is more trustful then de.dbpedia in case of the fusion scenario.
 
 
 ## Future Development
 
-TODO - combined function of weighted most frequent and preference dataset value
+TODO - a combined function of weighted most frequent and preference dataset value
