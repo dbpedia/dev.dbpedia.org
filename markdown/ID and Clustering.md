@@ -1,32 +1,36 @@
-# ID and Clustering
+# DBpedia Global ID Management and SameAs Clustering
+## Introduction
+The Web of Data uses a decentralized approach with owl:SameAs relations to interlink different RDF Resources  which represent the same Thing. However, in order perform a holistic data integration a lot of effort is required to obtain a global view of this decentralized knowledge. Moreover, the curation of decentralized links is hard to achieve since data maintenance costs accumulate at every data provider. 
+Hence, we propose the DBpedia Global ID Management. In a nutshell it materializes several Linksets available in the Web of Data, computes SameAs clusters based on the transitive closure, and assigns a DBpedia Global ID to every cluster, which can be used as uniform identifier for all of its equivalent identifiers. This forms a basis for benefiting from network effects in link curation but also data management, since rewriting your dataset-specific identifiers with DBpedia Global IDs simplifies the data integration process with other data sources for yourself but also for consumers of your data.
+## Terminology
+| Term                                    	| Description                                                                                                                                                                                                                                                                                                                                                                               	|
+|-----------------------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Identifier                              	| a string used to identify a resource in a dataset/database, in the Context of the ID Management an absolute HTTP(S) IRI                                                                                                                                                                                                                                                                   	|
+| Link                                    	| an equivalence relation between two identifiers (transitive, reflexive, symmetric); for now only owl:sameAs relations are considered                                                                                                                                                                                                                                                      	|
+| (Equivalence) Cluster (of identifier X) 	| An Equivalence Cluster (or short: cluster) Is the connected component from the graph of all links containing X == a maximal subgraph containing X such that between all identifiers in the subgraph a path of links exists == transitive closure of the equivalence relation for identifier X                                                                                             	|
+| Singleton-Cluster                       	| The special case of a cluster containing only one identifier.                                                                                                                                                                                                                                                                                                                             	|
+| Singleton ID                            	| When an identifier is added to the ID-Management it is first added to its own Singleton-Cluster. The id of this Singleton-Cluster is the Singleton ID. The Singleton ID represents a stable internal ID for the added identifier. A big unsigned integer (starting from 0, consecutively numbered) which identifies one Cluster. The range from 0 to 1 million is reserved at the moment. 	|
+| (Equivalence) Cluster ID                	| The id of an (Equivalence) Cluster is specified as the lowest Singleton ID of all of its members Singleton IDs.                                                                                                                                                                                                                                                                           	|
+| Cluster IRI and Singleton IRI           	| A dereferencable IRI representation of the Cluster ID and Singleton ID respectively of the form https://global.dbpedia.org/id/<b_cid> where <b_cid> is the base58 (Bitcoin alphabet `123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz` ) encoding representation of the Cluster-ID. For example https://global.dbpedia.org/id/abcd is the IRI for ID 6555138                                                                                  	|
+| DBpedia Global ID (of identifier X)     	| The DBpedia Global ID for X is the Cluster IRI of the Equivalence Cluster of X w.r.t to the current snapshot of the ID Management. Please note that this can change between two Snapshots!                                                                                                                                                                                                	|
+| Snapshot                                	| Is the (materialized) state of clustering in the ID Management given the set of links at a fixed point of time. The current snapshot is accessible as dump or in a resolution service                                                                                                                                                                                                     	|
 
-A brief tour through structure and meaning of the uploaded files:
-`cluster-groups.tsv.bz2` lists the identity clusters (according to the sameAs assertions in the input data). One cluster per line. The first column gives the global id (decimal representation) that identifies this cluster. An example line:
+## Global ID Snapshot Release
+The assigment of dataset-specific identifiers (IRIs) to  DBpedia Global IDs as well as the assignment of identifiers to clusters is published on the DBpedia Databus under [https://downloads.dbpedia.org/repo/dev/global-id-management/sameas-clusters](https://downloads.dbpedia.org/repo/dev/global-id-management/sameas-clusters).
 
-1045567    <http://commons.dbpedia.org/resource/Málaga> <http://es.dbpedia.org/resource/Málaga>
-
-If one looks up the corresponding lines in `global-ids.tsv.bz2`
+If one looks up the corresponding lines in a snapshot version of a `sameas-clusters-<*version-nr*>.tsv.bz2` file
 
 ```
-original_iri    singleton_id    cluster_id
-http://commons.dbpedia.org/resource/Málaga    21893128    1045567
-http://es.dbpedia.org/resource/Málaga    1045567    1045567
+original_iri    								singleton_id_base58    	cluster_id_base58
+http://commons.dbpedia.org/resource/Málaga    	2wD4j    				6Mp2
+http://es.dbpedia.org/resource/Málaga    		6Mp2    				6Mp2
 ```
 
 one can see that cluster membership is encoded there by the fact that all original IRIs that belong to the same cluster share the same cluster id. The cluster id is selected as the minimum of all singleton_id of IRI for resources that are in the same connected component of the undirected graph induced by the sameAs statements considered (these connected components have been then dubbed cluster in the context of the id management).
 
-To make the resulting new global IRIs shorter, we decided to encode the IDs in base58 for public-facing services. Thus, looking up the corresponding lines in `global-ids-base58.tsv.bz2`
-
-```
-original_iri    singleton_id_base58    cluster_id_base58
-http://commons.dbpedia.org/resource/Málaga    2wD4j    6Mp2
-http://es.dbpedia.org/resource/Málaga    6Mp2    6Mp2
-```
-
-will inform under which IRIs the (fused) information about the entity represented by the cluster will be accessible: Primarily under `<https://global.dbpedia.org/id/6Mp2>`, but also (via redirect) under `<https://global.dbpedia.org/id/2wD4j>`.
+To make the resulting new Global IRIs shorter,  the IDs are encoded in base58 for public-facing services. Thus, looking up the corresponding lines in `global-ids-base58.tsv.bz2` will inform under which IRIs the (fused) information about the entity represented by the cluster will be accessible: Primarily under `<https://global.dbpedia.org/id/6Mp2>`, but also (via redirect) under `<https://global.dbpedia.org/id/2wD4j>`. NOTE: the Global ID however is only `<https://global.dbpedia.org/id/6Mp2>`.
 
 Mathematically speaking, `<http://es.dbpedia.org/resource/Málaga>` or respectively `<https://global.dbpedia.org/id/6Mp2>` has been chosen as representative for the sameAs-equivalence class of
-
 ```
 { <http://commons.dbpedia.org/resource/Málaga>, <http://es.dbpedia.org/resource/Málaga> }
 ```
