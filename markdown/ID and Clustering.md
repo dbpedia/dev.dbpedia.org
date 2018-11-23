@@ -3,6 +3,7 @@
 The Web of Data uses a decentralized approach with owl:SameAs relations to interlink different RDF Resources  which represent the same Thing. However, in order perform a holistic data integration a lot of effort is required to obtain a global view of this decentralized knowledge. Moreover, the curation of decentralized links is hard to achieve since data maintenance costs accumulate at every data provider. 
 Hence, we propose the DBpedia Global ID Management. In a nutshell it materializes several Linksets available in the Web of Data, computes SameAs clusters based on the transitive closure, and assigns a DBpedia Global ID to every cluster, which can be used as uniform identifier for all of its equivalent identifiers. This forms a basis for benefiting from network effects in link curation but also data management, since rewriting your dataset-specific identifiers with DBpedia Global IDs simplifies the data integration process with other data sources for yourself but also for consumers of your data.
 ## Terminology
+
 | Term                                    	| Description                                                                                                                                                                                                                                                                                                                                                                               	|
 |-----------------------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
 | Identifier                              	| a string used to identify a resource in a dataset/database, in the Context of the ID Management an absolute HTTP(S) IRI                                                                                                                                                                                                                                                                   	|
@@ -21,9 +22,9 @@ The assigment of dataset-specific identifiers (IRIs) to  DBpedia Global IDs as w
 If one looks up the corresponding lines in a snapshot version of a `sameas-clusters-<*version-nr*>.tsv.bz2` file
 
 ```
-original_iri    								singleton_id_base58    	cluster_id_base58
-http://commons.dbpedia.org/resource/Málaga    	2wD4j    				6Mp2
-http://es.dbpedia.org/resource/Málaga    		6Mp2    				6Mp2
+original_iri                                singleton_id_base58     cluster_id_base58
+http://commons.dbpedia.org/resource/Málaga  2wD4j                   6Mp2
+http://es.dbpedia.org/resource/Málaga       6Mp2                    6Mp2
 ```
 
 one can see that cluster membership is encoded there by the fact that all original IRIs that belong to the same cluster share the same cluster id. The cluster id is selected as the minimum of all singleton_id of IRI for resources that are in the same connected component of the undirected graph induced by the sameAs statements considered (these connected components have been then dubbed cluster in the context of the id management).
