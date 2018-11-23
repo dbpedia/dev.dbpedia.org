@@ -29,7 +29,7 @@ http://es.dbpedia.org/resource/Málaga       6Mp2                    6Mp2
 
 one can see that cluster membership is encoded there by the fact that all original IRIs that belong to the same cluster share the same cluster id. The cluster id is selected as the minimum of all singleton_id of IRI for resources that are in the same connected component of the undirected graph induced by the sameAs statements considered (these connected components have been then dubbed cluster in the context of the id management).
 
-To make the resulting new Global IRIs shorter,  the IDs are encoded in base58 for public-facing services. Thus, looking up the corresponding lines in `global-ids-base58.tsv.bz2` will inform under which IRIs the (fused) information about the entity represented by the cluster will be accessible: Primarily under `<https://global.dbpedia.org/id/6Mp2>`, but also (via redirect) under `<https://global.dbpedia.org/id/2wD4j>`. NOTE: the Global ID however is only `<https://global.dbpedia.org/id/6Mp2>`.
+To make the resulting Global IDs shorter and user friendly, the IDs are encoded in base58 for public-facing services. Thus prefixing the values in the base58 columns with `https://global.dbpedia.org/id/` will form the Singleton and Cluster IRI under which the (fused) information about the entity represented by the cluster will be accessible: Primarily under `<https://global.dbpedia.org/id/6Mp2>`, but also (via redirect) under `<https://global.dbpedia.org/id/2wD4j>`. NOTE: However, the Global ID is only `<https://global.dbpedia.org/id/6Mp2>`.
 
 Mathematically speaking, `<http://es.dbpedia.org/resource/Málaga>` or respectively `<https://global.dbpedia.org/id/6Mp2>` has been chosen as representative for the sameAs-equivalence class of
 ```
