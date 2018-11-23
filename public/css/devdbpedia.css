@@ -9,3 +9,7 @@
   -moz-hyphens: auto;
   hyphens: auto;
 }
+
+.container {
+  max-width: 56rem !important;
+}
