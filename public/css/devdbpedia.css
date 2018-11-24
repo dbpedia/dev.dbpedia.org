@@ -1,5 +1,6 @@
 
 .container p {
+  
   text-align: justify;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -9,5 +10,10 @@
 }
 
 .container {
-  max-width: 56rem !important;
+  max-width: 56rem;
+  margin-left: 0;
+}
+
+.wrap {
+  margin: 0 1rem 0 15rem;
 }
