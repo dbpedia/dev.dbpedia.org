@@ -41,3 +41,13 @@ crontab -l > tmpcron
 echo "*/10 * * * * /bin/sh -c 'cd `pwd` && /usr/bin/git pull -q origin master && ./generate-markdown.sh'" >> tmpcron
 crontab tmpcron && rm tmpcron
 ```
+
+## Docker w/o cronjob
+Docker cand be used to deploy the jekyll webserver.
+`Beware` it does not support cronjobs for now.
+
+```
+docker build -t dev.dbpedia.org .
+# run on host port 4000
+docker run -p 4000:80 dev.dbpedia.org
+```
