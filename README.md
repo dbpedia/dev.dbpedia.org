@@ -3,7 +3,7 @@ Developer Documentation at <a href="http://dev.dbpedia.org">http://dev.dbpedia.o
 
 ## Requirements
 ```
-jekyll curl crontab
+apt-get install jekyll curl crontab
 ```
 ## Installation 
 ```
