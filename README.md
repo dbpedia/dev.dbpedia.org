@@ -43,11 +43,11 @@ crontab tmpcron && rm tmpcron
 ```
 
 ## Docker w/o cronjob
-Docker cand be used to deploy the jekyll webserver.
+Docker can be used to deploy the jekyll webserver.
 `Beware` it does not support cronjobs for now.
 
 ```
 docker build -t dev.dbpedia.org .
-# run on host port 4000
-docker run -p 4000:80 dev.dbpedia.org
+# run on host port 4000 with live rendering of changes in contents and markdown folder
+docker run -p 4000:80 -v "$(pwd)":/root dev.dbpedia.org
 ```
