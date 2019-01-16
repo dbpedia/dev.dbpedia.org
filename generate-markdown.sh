@@ -4,6 +4,7 @@ rank=0
 while IFS='' read -r line || [[ -n "$line" ]]; do
 #	entryname=${line%%	*}
 	entryname=`echo "$line" | cut -d$'\t' -f1`
+	filename=`echo "$entryname" | sed "s/ /_/g"`
 #	repourl=${line##*	}
 	repourl=`echo "$line" | cut -d$'\t' -f2`
 
@@ -19,13 +20,13 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     fi
 	if [ -z "$parent" ]
 	then
-		#echo -e "---\nlayout: readme\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nrank: \"$(echo -n 0$rank)\"\n---\n" > "content/$entryname.md"
-		echo -e "---\nlayout: readme\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nrank: $rank\n---\n" > "content/$entryname.md"
+		#echo -e "---\nlayout: readme\ntitle: \"$entryname\"\npermalink: \"$filename\"\nrank: \"$(echo -n 0$rank)\"\n---\n" > "content/$entryname.md"
+		echo -e "---\nlayout: readme\ntitle: \"$entryname\"\npermalink: \"$filename\"\nrank: $rank\n---\n" > "content/$entryname.md"
 		echo -e "$includetext\n" >> "content/$entryname.md"
 		curl -s "$readmeurl" >> "content/$entryname.md"
 	else
-		#echo -e "---\nlayout: subpage\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nparent: \"$parent\"\nrank: \"$(echo -n 0$rank)\"\n---\n" > "content/$entryname.md"
-		echo -e "---\nlayout: subpage\ntitle: \"$entryname\"\npermalink: \"$entryname\"\nparent: \"$parent\"\nrank: $rank\n---\n" > "content/$entryname.md"
+		#echo -e "---\nlayout: subpage\ntitle: \"$entryname\"\npermalink: \"$filename\"\nparent: \"$parent\"\nrank: \"$(echo -n 0$rank)\"\n---\n" > "content/$entryname.md"
+		echo -e "---\nlayout: subpage\ntitle: \"$entryname\"\npermalink: \"$filename\"\nparent: \"$parent\"\nrank: $rank\n---\n" > "content/$entryname.md"
 		echo -e "$includetext\n" >> "content/$entryname.md"
 		curl -s "$readmeurl" >> "content/$entryname.md"
 	fi
