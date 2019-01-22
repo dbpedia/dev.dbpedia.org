@@ -5,6 +5,7 @@ Data,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown
 Mappings,Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
 Extraction,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
 Extraction QuickStart,Extraction,https://github.com/dbpedia/extraction-framework,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/QuickStart.md
+Mappingbased Extraction,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappingbased%20Extraction.md
 ID and Clustering,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/ID%20and%20Clustering.md,
 Global IRI Resolution Service,,https://github.com/dbpedia/dbp-same-thing-service,https://raw.githubusercontent.com/dbpedia/dbp-same-thing-service/master/README.md,
 DBpedia Fusion,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia%20Fusion.md,
