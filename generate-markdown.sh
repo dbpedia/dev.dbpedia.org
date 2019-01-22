@@ -1,13 +1,18 @@
 #!/bin/bash
 cd "$( dirname "${BASH_SOURCE[0]}")"
+
+mkdir content
+rm -r content/*.md
+cp markdown/about.md content/about.md
+
 rank=0
 while IFS='' read -r line || [[ -n "$line" ]]; do
 
 	# get the table columns
-	entryname=`echo "$line" | cut -d$'\t' -f1`
-	parent=`echo "$line" | cut -d$'\t' -f2`
-	repourl=`echo "$line" | cut -d$'\t' -f3`
-	readmeurl=`echo "$line" | cut -d$'\t' -f4`
+	entryname=`echo "$line" | cut -d$',' -f1`
+	parent=`echo "$line" | cut -d$',' -f2`
+	repourl=`echo "$line" | cut -d$',' -f3`
+	readmeurl=`echo "$line" | cut -d$',' -f4`
 	
 
 
@@ -36,4 +41,4 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 	
 	
 	((rank+=1))
-done < <(tail -n+2 readme-list.tsv)
+done < <(tail -n+2 readme-list.csv)
