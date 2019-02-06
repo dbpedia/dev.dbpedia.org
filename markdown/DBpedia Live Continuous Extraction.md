@@ -10,15 +10,18 @@ The backbone of DBpedia Live is a queue to keep track of the pages that need to 
 
 Live uses a mechanism called Feeder in order to determine which pages need to be processed: one Feeder, that receives a stream of recent changes that is provided by Wikimedia; one Feeder that queries pages that are present in the Live Cache but have not been processed in a long time; and so on (see Feeder section). They fill the Live Queue with Items, which are then processed by a configurable set of extractors, which are used in the in the regular dump extraction (core module of extraction framework).
 
-## Queue
-The queue is a combination of a priority blocking queue and a unique set.
+## LiveQueue
+The Live Queue is a combination of a priority blocking queue and a unique set.
 It consists of LiveQueueItems each of which is identified by its name (the wiki page name).
 This way, it is guaranteed that each item in the queue is unique (based on its name) and processed according to its priority.
 It is also a blocking queue. That means, if necessary, a take() will wait for the queue to become non-empty and a put(e) will wait for the queue to become smaller and offer enough space for e.
-The current implementation is not fully threadsafe and leaves room for parallelization.
+All fields and methods of the queue are static.
 
 ## Feeder
-in progress
+Feeders provide an interface between a stream that contains updates of Wikipedia pages and DBpedia Live Continuous Extraction. The abstract class Feeder fetches a Collection of LiveQueueItems and eventually puts them into the Live Queue. How the items are collected and kept is up to the implementation of its extending classes. 
+
+Currently the EventStreamsFeeder is the only Feeder in use. It consumes the Wikimedia EventStreams recentchange stream (see [https://wikitech.wikimedia.org/wiki/EventStreams](https://wikitech.wikimedia.org/wiki/EventStreams)), using Akka Streams. The EventStreams API uses the ServerSentEvent protocol in order to transmit events, which in turn makes use of the chunked transfer encoding of http.
+
 ## Processing
 The logic of what is happening with a LiveQueueItem once it is taken out of the queue is implemented in the classes LiveExtractionConfigLoader and PageProcessor.
 ### Live Cache: a relational database
