@@ -20,7 +20,7 @@ All fields and methods of the queue are static.
 ## Feeder
 Feeders provide an interface between a stream that contains updates of Wikipedia pages and DBpedia Live Continuous Extraction. The abstract class Feeder fetches a Collection of LiveQueueItems and eventually puts them into the Live Queue. How the items are collected and kept is up to the implementation of its extending classes. 
 
-Currently the EventStreamsFeeder is the only Feeder in use. It consumes the Wikimedia EventStreams recentchange stream (see [https://wikitech.wikimedia.org/wiki/EventStreams](https://wikitech.wikimedia.org/wiki/EventStreams)), using Akka Streams. The EventStreams API uses the ServerSentEvent protocol in order to transmit events, which in turn makes use of the chunked transfer encoding of http.
+Currently the EventStreamsFeeder is the only Feeder in use. It consumes the Wikimedia EventStreams recentchange stream (see [https://wikitech.wikimedia.org/wiki/EventStreams](https://wikitech.wikimedia.org/wiki/EventStreams)), using Akka Streams. The EventStreams API uses the ServerSentEvent protocol in order to transmit events, which in turn makes use of the chunked transfer encoding of http. The Akka part of this functionality is implemented in the Scala class EventstreamsHelper.
 
 ## Processing
 The logic of what is happening with a LiveQueueItem once it is taken out of the queue is implemented in the classes LiveExtractionConfigLoader and PageProcessor.
@@ -40,6 +40,13 @@ The extractors all live in the core module. Which extractors will be used is con
 
 ## Output and Live Mirror
 in progress
+
+## Initialisation and Synchronization
+
+One central question is how the live extraction and the triplestore are initialized and then kept in sync. By its nature, the live module is designed to track changes, but not to cover the entirety of Wikipedia pages, where a lot of old pages might not be editet for a long time. On the other hand, it is not possible to feed the triplestore with a DBpedia dump, as the diffs are produced in the Live Cache and this would result in invalid triples in the triplestore. 
+The Live Cache is playing the key role to solve this issue. The initialization process consist of feeding all pageIds to the Live Cache, so there exists a row for every page, where the timestamp of the field "updated" is set to an artificial date in the past, and all other fields are empty. Then, the UnmodifiedFeeder is started at the same time as any other feeder, eventually visiting every row that has not been updated for a certain time intervall (that should be picked in a reasonable relation to the one used when initialising the rows of the cache), and putting its pageId into the queue. That way, the "bootstrapping" of live is happening within the module and the Live Mirror can consume the output of the Live Extraction without having to deal with the initialisitation.
+
+
 # A Brief History of Live
 in progress
 # Issues
