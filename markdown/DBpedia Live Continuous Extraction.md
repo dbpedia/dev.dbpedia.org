@@ -43,8 +43,11 @@ in progress
 
 ## Initialisation and Synchronization
 
-One central question is how the live extraction and the triplestore are initialized and then kept in sync. By its nature, the live module is designed to track changes, but not to cover the entirety of Wikipedia pages, where a lot of old pages might not be editet for a long time. On the other hand, it is not possible to feed the triplestore with a DBpedia dump, as the diffs are produced in the Live Cache and this would result in invalid triples in the triplestore. 
+One central question is how the Live Extraction and the triplestore are initialized and then kept in sync. By its nature, the Live module is designed to track changes, but not to cover the entirety of Wikipedia pages, where a lot of old pages might not be editet for a long time. On the other hand, it is not possible to feed the triplestore with a DBpedia dump, as the diffs are produced in the Live Cache and this would result in invalid triples in the triplestore. 
+
 The Live Cache is playing the key role to solve this issue. The initialization process consist of feeding all pageIds to the Live Cache, so there exists a row for every page, where the timestamp of the field "updated" is set to an artificial date in the past, and all other fields are empty. Then, the UnmodifiedFeeder is started at the same time as any other feeder, eventually visiting every row that has not been updated for a certain time intervall (that should be picked in a reasonable relation to the one used when initialising the rows of the cache), and putting its pageId into the queue. That way, the "bootstrapping" of live is happening within the module and the Live Mirror can consume the output of the Live Extraction without having to deal with the initialisitation.
+
+[This script](https://github.com/dbpedia/extraction-framework/blob/master/scripts/src/main/scala/org/dbpedia/extraction/scripts/UnmodifiedFeederCacheGenerator.scala) will add the pageIds to the Live Cache. You need a dump file of the pageIds, in .nt, .ttl, .nq or .tql format (also zipped endings like .ttl.gz or .nt.bz2 will work), using either IRIs or URIs (like [this,](http://downloads.dbpedia.org/2016-10/core-i18n/en/page_ids_en.ttl.bz2) for example). 
 
 
 # A Brief History of Live
