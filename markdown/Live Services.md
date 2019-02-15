@@ -1,3 +1,3 @@
 ## Table of Content
-* <a href="/DBpedia Live Continuous Extraction">DBpedia Live Continuous Extraction</a>
-* <a href="/DBpedia Live Mirroring">DBpedia Live Mirroring</a>
+* <a href="DBpedia Live Continuous Extraction.md">DBpedia Live Continuous Extraction</a>
+* <a href="DBpedia Live Mirroring.md">DBpedia Live Mirroring</a>
