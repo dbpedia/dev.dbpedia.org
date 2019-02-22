@@ -7,11 +7,11 @@ permalink: /
 # About
 
 We are currently working on a major renovation of DBpedia, which includes:
-* for developers: being better documented and have clear processes for contribution (this collection)
+* for developers: being better documented and have clear processes for contribution (this bible)
 * for industry: upgrading the free and open resources to be more reliable and offer reliable services and also models to make money with DBpedia
 * for researchers: better infrastructure to share and build resources together
 
-These are all big goals and they take time, however we aim to have **this collection of documentation in a decent state by end of Dec 2018**.
+These are all big goals and they take time and the documentation here will **probably always be outdated, but the best place to go to anyhow**. 
 
 
 ## Purpose of the DBpedia Development Wiki
