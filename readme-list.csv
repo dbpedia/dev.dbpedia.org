@@ -1,5 +1,6 @@
 Title of page,Parent page,Link to Github repository,Raw link to markdownfile
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
+Databus Upload User Manual,Databus,https://github.com/dbpedia/databus-maven-plugin/wiki/User-Manual-v1.3,https://raw.githubusercontent.com/wiki/dbpedia/databus-maven-plugin/User-Manual-v1.3.md
 Databus Maven Plugin,Databus,https://github.com/dbpedia/databus-maven-plugin,https://raw.githubusercontent.com/dbpedia/databus-maven-plugin/master/README.md
 Data,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
 Mappings,Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
