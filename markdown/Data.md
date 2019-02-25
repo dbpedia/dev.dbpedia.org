@@ -27,7 +27,7 @@ The collection queries are  `{query1} UNION {query2}` using `?file`
 
 <img src="https://github.com/dbpedia/dev.dbpedia.org/raw/master/pics/generic_labels_en.png">
 
-### The SPARQL API:
+### The SPARQL API URL:
 * https://databus.dbpedia.org/repo/sparql 
 * https://databus.dbpedia.org/yasgui/ (still buggy)
 
@@ -40,13 +40,13 @@ PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX dcat:  <http://www.w3.org/ns/dcat#>
 
 SELECT ?file {
-?dataset dcat:distribution ?distribution.
-?distribution dataid:contentVariant 'en'^^<http://www.w3.org/2001/XMLSchema#string> .
-?distribution dcat:downloadURL ?file  .
-{SELECT ?dataset ?latest WHERE {
-	?dataset dataid:artifact <https://databus.dbpedia.org/dbpedia/generic/labels> .
-            ?dataset dct:hasVersion ?latest .
-} ORDER BY DESC(?latest) LIMIT 1 }
+	?dataset dcat:distribution ?distribution.
+	?distribution dataid:contentVariant 'en'^^<http://www.w3.org/2001/XMLSchema#string> .
+	?distribution dcat:downloadURL ?file  .
+	{SELECT ?dataset ?latest WHERE {
+		?dataset dataid:artifact <https://databus.dbpedia.org/dbpedia/generic/labels> .
+				?dataset dct:hasVersion ?latest .
+	} ORDER BY DESC(?latest) LIMIT 1 }
 }
 ```
 
@@ -92,6 +92,10 @@ SELECT ?file ?shasum {
 
 ## Example Application Virtuoso Docker
 
-
-
+1. Download the [Docker](https://github.com/dbpedia/dev.dbpedia.org/raw/master/pics/Dockerfile.dockerfile)
+2. Build `docker build -t databus-dump-triplestore .`
+3. Load any Databus `?file` query:
+```
+docker run -p 8890:8890 databus-dump-triplestore $(cat file-with-query.sparql)
+```
 
