@@ -3,7 +3,7 @@ Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markd
 Databus Upload User Manual,Databus,https://github.com/dbpedia/databus-maven-plugin/wiki/User-Manual-v1.3,https://raw.githubusercontent.com/wiki/dbpedia/databus-maven-plugin/User-Manual-v1.3.md
 Databus Maven Plugin,Databus,https://github.com/dbpedia/databus-maven-plugin,https://raw.githubusercontent.com/dbpedia/databus-maven-plugin/master/README.md
 Data,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
-Extraction,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
+Extraction,,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
 Extraction QuickStart,Extraction,https://github.com/dbpedia/extraction-framework,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/QuickStart.md
 Mappingbased Extraction,Extraction,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappingbased%20Extraction.md
 ID and Clustering,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/ID%20and%20Clustering.md,
