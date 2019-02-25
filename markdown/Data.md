@@ -92,7 +92,7 @@ SELECT ?file ?shasum {
 
 ## Example Application Virtuoso Docker
 
-1. Download the [Docker](https://github.com/dbpedia/dev.dbpedia.org/raw/master/pics/Dockerfile.dockerfile)
+1. Download the [Dockerfile](https://github.com/dbpedia/dev.dbpedia.org/raw/master/pics/Dockerfile.dockerfile)
 2. Build `docker build -t databus-dump-triplestore .`
 3. Load any Databus `?file` query:
 ```
