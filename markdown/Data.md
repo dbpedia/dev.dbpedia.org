@@ -33,7 +33,7 @@ The collection queries are  `{query1} UNION {query2}` using `?file`
 <img src="https://github.com/dbpedia/dev.dbpedia.org/raw/master/pics/generic_labels_en.png">
 
 
-### Get the latest version of the English labels artifact
+### [Generic/Labels](https://databus.dbpedia.org/dbpedia/generic/labels), Latest Version, English only. 
 The queries to retrieve the download URLs are stable between versions and can be used to configure data dependencies in applications. The query below will always give the latest version of the English labels dataset: 
 
 ```
@@ -58,38 +58,42 @@ SELECT ?file {
 {% endraw %}
 -->
 
-### Get the latest version of all download URLs from the generic group extracted from the English Wikipedia:
+### Generic, Mappings, Text group, latest version of all artifacts,  English Wikipedia only minus the Wikilinks artifact
+
+Note: this query is pretty close to what we load in the main endpoint, e.g. the [Transition Group] (https://databus.dbpedia.org/dbpedia/transition) is missing. 
+
+
 ```
 PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX dcat:  <http://www.w3.org/ns/dcat#>
 
 SELECT ?file {
-	?dataset dcat:distribution ?distribution.
-	?distribution dataid:contentVariant 'en'^^<http://www.w3.org/2001/XMLSchema#string> .
-	?distribution dcat:downloadURL ?file  .
-	{SELECT ?dataset max(?version) WHERE {
-			?dataset dataid:group <https://databus.dbpedia.org/dbpedia/generic> .
-			?dataset dct:hasVersion ?version .
-	} GROUP BY ?dataset }
-}
+    ?dataset dataid:artifact ?artifact .
+    ?dataset dataid:version ?latest .
+    ?dataset dcat:distribution ?distribution.
+    # filter by language and other cv here. 
+    ?distribution dataid:contentVariant 'en'^^<http://www.w3.org/2001/XMLSchema#string> .
+    ?distribution dcat:downloadURL ?file  .
+    {SELECT ?artifact (max(?version) as ?latest) WHERE {
+                # filter by group here 
+                ?dataset dataid:group ?group . 
+                FILTER (?group in (<https://databus.dbpedia.org/dbpedia/generic>, <https://databus.dbpedia.org/dbpedia/generic>, <https://databus.dbpedia.org/dbpedia/mappings> )) .
+                # filter by artifact here 
+                ?dataset dataid:artifact ?artifact .
+                FILTER (?artifact != <https://databus.dbpedia.org/dbpedia/generic/wikilinks>)
+                ?dataset dataid:version ?version .
+                } GROUP BY ?artifact 
+     }
+}order by desc(?file)
 ```
-### sha256sum
-```
-PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
-PREFIX dct: <http://purl.org/dc/terms/>
-PREFIX dcat:  <http://www.w3.org/ns/dcat#>
 
+### sha256sum
+Add this to the query:
+
+```
 SELECT ?file ?shasum {
-	?dataset dcat:distribution ?distribution.
-	?distribution dataid:contentVariant 'en'^^<http://www.w3.org/2001/XMLSchema#string> .
-	?distribution dcat:downloadURL ?file  .
 	?distribution dataid:sha256sum ?shasum .
-	{SELECT ?dataset max(?version) WHERE {
-			?dataset dataid:group <https://databus.dbpedia.org/dbpedia/generic> .
-			?dataset dct:hasVersion ?version .
-	} GROUP BY ?dataset }
-}
 ```
 
 ## Example Application Virtuoso Docker
