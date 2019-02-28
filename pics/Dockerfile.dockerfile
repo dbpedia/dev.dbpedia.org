@@ -2,6 +2,13 @@ FROM tenforce/virtuoso
 
 ARG endpoint="https://databus.dbpedia.org/repo/sparql"
 ARG default_graph="http://localhost:8890/dbpedia"
+# memory in MByte
+ARG buffer_memory="4096"
+
+RUN bash -c 'sed "s/^NumberOfBuffers\s*=\s*10000/NumberOfBuffers=$((84*'$buffer_memory'))/g" /virtuoso.ini  \
+| sed "s/^MaxDirtyBuffers\s*=\s6000/MaxDirtyBuffers=$((62*'$buffer_memory'))/g"' > /tmp.ini
+
+RUN mv /tmp.ini /virtuoso.ini
 
 RUN apt-get -y install curl lbzip2 pigz
 
