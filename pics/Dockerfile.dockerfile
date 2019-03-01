@@ -5,12 +5,8 @@ ARG default_graph="http://localhost:8890/dbpedia"
 # memory in MByte
 ARG buffer_memory="4096"
 
-RUN bash -c 'sed "s/^NumberOfBuffers\s*=\s*10000/NumberOfBuffers=$((84*'$buffer_memory'))/g" /virtuoso.ini  \
-| sed "s/^MaxDirtyBuffers\s*=\s6000/MaxDirtyBuffers=$((62*'$buffer_memory'))/g"' > /tmp.ini
-
-RUN mv /tmp.ini /virtuoso.ini
-
-RUN apt-get update && apt-get -y install curl lbzip2 pigz
+RUN apt-get update \
+  && apt-get -y install curl lbzip2 pigz
 
 RUN echo "ld_dir_all('toLoad', '*', '"$default_graph"');\n\
 rdf_loader_run();\nexec('checkpoint');" > /load_data.sql
@@ -35,7 +31,7 @@ do\n\
   if [ ! -d "/data/toLoad/$artifact/$version/" ]; then\n\
     mkdir -p "/data/toLoad/$artifact/$version/"\n\
   fi\n\
-  if [ ! -f "/data/toLoad/$artifact/$version/$file_name" ]; then\n\
+  if [ ! -f "/data/toLoad/$artifact/$version/$file_name.gz" ]; then\n\
     echo "download: $artifact $version $file_name"\n\
     curl $single_file_url | lbzip2 -dc | pigz > "/data/toLoad/$artifact/$version/$file_name.gz"\n\
   else\n\
@@ -43,7 +39,16 @@ do\n\
   fi\n\
 done' > /download.sh
 
-RUN echo 'bash /download.sh $(bash /sparql.sh "$*")\n\
+RUN crudini --set /virtuoso.ini Parameters MaxDirtyBuffers $((62*$buffer_memory)) \
+  && crudini --set /virtuoso.ini Parameters NumberOfBuffers $((84*$buffer_memory))
+
+RUN echo 'if [ ! -f "/settings/.config_set" ] && [ -f /data/virtuoso.ini ]; then\n\
+  echo "setting: NumberofBuffers $((84*'$buffer_memory'))"\n\
+  crudini --set /data/virtuoso.ini Parameters NumberOfBuffers $((84*'$buffer_memory'))\n\
+  echo "setting: MaxDirtyBuffers $((62*'$buffer_memory'))"\n\
+  crudini --set /data/virtuoso.ini Parameters MaxDirtyBuffers $((62*'$buffer_memory'))\n\
+fi\n\
+bash /download.sh $(bash /sparql.sh "$*")\n\
 bash /virtuoso.sh' > /run.sh
 
 ENTRYPOINT ["/bin/bash","/run.sh"]
