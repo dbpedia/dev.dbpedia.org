@@ -10,7 +10,7 @@ RUN bash -c 'sed "s/^NumberOfBuffers\s*=\s*10000/NumberOfBuffers=$((84*'$buffer_
 
 RUN mv /tmp.ini /virtuoso.ini
 
-RUN apt-get -y install curl lbzip2 pigz
+RUN apt-get update && apt-get -y install curl lbzip2 pigz
 
 RUN echo "ld_dir_all('toLoad', '*', '"$default_graph"');\n\
 rdf_loader_run();\nexec('checkpoint');" > /load_data.sql
