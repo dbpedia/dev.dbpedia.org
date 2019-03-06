@@ -1,12 +1,19 @@
 
 .container p {
-  
+
   text-align: justify;
   word-wrap: break-word;
   overflow-wrap: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
+}
+
+.navbar {
+  position: fixed;
+  top: 6rem;
+  margin-left: 57rem;
+  z-index: 1
 }
 
 .container {
