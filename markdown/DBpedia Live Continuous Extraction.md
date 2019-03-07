@@ -88,7 +88,7 @@ cache.pw    = <password>
 
 Create the table DBPEDIALIVE_CACHE as in /extraction-framework/live/src/main/SQL/dbstructure.sql. 
 
-In order to initialize the Live Cache with a current dump of pageIDs (see section Initialization and Synchronization), get the latest dump file of the pageIds, in .nt, .ttl, .nq or .tql format (or suffixes of compressed files like .ttl.gz or .nt.bz2), using either IRIs or URIs (like [this](http://downloads.dbpedia.org/2016-10/core-i18n/en/page_ids_en.ttl.bz2), for example). 
+In order to initialize the Live Cache with a current dump of pageIDs (see section Initialization and Synchronization), get the latest dump file of the pageIds, in .nt, .ttl, .nq or .tql format (or suffixes of compressed files like .ttl.gz or .nt.bz2), containing either IRIs or URIs (like [this](http://downloads.dbpedia.org/2016-10/core-i18n/en/page_ids_en.ttl.bz2), for example). 
  
 Then run [this script](https://github.com/dbpedia/extraction-framework/blob/master/scripts/src/main/scala/org/dbpedia/extraction/scripts/UnmodifiedFeederCacheGenerator.scala). 
  
