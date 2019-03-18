@@ -10,12 +10,14 @@ The backbone of DBpedia Live is a queue to keep track of the pages that need to 
 
 Live uses a mechanism called Feeder in order to determine which pages need to be processed: one Feeder, that receives a stream of recent changes that is provided by Wikimedia; one Feeder that queries pages that are present in the Live Cache but have not been processed in a long time; and so on (see Feeder section). They fill the Live Queue with Items, which are then processed by a configurable set of extractors, which are used in the in the regular dump extraction (core module of extraction framework).
 
-## LiveQueue
+## Live Queue and Publishing Queue
 The Live Queue is a combination of a priority blocking queue and a unique set.
 It consists of LiveQueueItems each of which is identified by its name (the wiki page name).
 This way, it is guaranteed that each item in the queue is unique (based on its name) and processed according to its priority.
 It is also a blocking queue. That means, if necessary, a take() will wait for the queue to become non-empty and a put(e) will wait for the queue to become smaller and offer enough space for e.
 All fields and methods of the queue are static.
+
+After the whole extraction and diff process, a DiffData element is produced which is put into a publishing queue (see section Processing).
 
 ## Feeder
 Feeders provide an interface between a stream that contains updates of Wikipedia pages and DBpedia Live Continuous Extraction. The abstract class Feeder fetches a Collection of LiveQueueItems and eventually puts them into the Live Queue. How the items are collected and kept is up to the implementation of its extending classes.
@@ -26,7 +28,7 @@ Currently the EventStreamsFeeder is used in order to fetch information about rec
 
 The UnmodifiedFeeder is used in order to update pages that are present in the Live Cache but have not been updated for a certain time interval.
 
-### Live Cache: a relational database
+## Live Cache: a relational database
 
 The Live Cache is used to produce the diff between different versions of a page. Each row represents a page, which is identified by its page ID. The json contains the triples. They are stored per extractor together with their md5sum hash.
 
@@ -39,7 +41,7 @@ wikipedia page ID| wikipedia page title | timestamp of when the page was updated
 The SQL statements  and how they are used is defined in DBpediaSQLQueries and JSONCache respectively.
 
 
-### Extractors
+## Extractors
 The extractors all live in the core module. Which extractors will be used is configured in the ./live.xml file.
 
 
@@ -48,18 +50,20 @@ Once a LiveQueueItem  is taken out of the Live Queue the extraction process is t
 
 The resulting graph from the extraction is processed in a pipeline of Live Destinations that handles the diff (first stage) as well as the publishing and the update of the Live Cache (final stages).
 
-The first stage of the pipeline receives a set of triples which is the result of a specific extractor applied to a page, and hashes them. It retrieves all triples of the corresponding Cache Item which are stored per extractor together with their hash (this information is contained in the JSON of the Cache Item). The stage produces three triplesets: added, removed and unmodified. If the hashes don't differ, all received triples become "unmodified". If the hashes differ, the actual filtering of the cache and the received triples takes place, producing the three triplesets accordingly.
+The first stage of the pipeline receives a set of triples which is the result of a specific extractor applied to a page, and hashes them. It retrieves all triples of the corresponding Cache Item which are stored per extractor together with their hash (this information is contained in the JSON of the Cache Item). The stage produces three triplesets: `added`, `removed` and `unmodified`. If the hashes don't differ, all received triples become `unmodified`. If the hashes differ, the actual filtering of the cache and the received triples takes place, producing the three triplesets accordingly.
 
-The second stage of the pipeline updates the Live Cache and transforms the three triplesets added, removed and unmodified to a DiffData Element that is put into a publishing queue after all configured extractors are applied to a page.
+The second and final stage of the pipeline updates the Live Cache and transforms the three triplesets `added`, `removed` and `unmodified` to a DiffData Element that is put into a publishing queue after all configured extractors are applied to a page.
 
-A DiffData element consists of a pageID and the four changesets added, removed, clear and reInserted which are finally written to files as N-Triples. Added and removed correspond to the added and removed triples from the former stage, whereas clear consists of the subjects of all the added, removed and unmodified triples, and reInserted of the added and unmodified triples.
+A DiffData element consists of a pageID and the four changesets `added`, `removed`, `clear` and `reInserted` which are finally written to files as N-Triples. `Added` and `removed` correspond to the `added` and `removed` triples from the former stage, whereas `clear` consists of the subjects of all the `added`, `removed` and unmodified triples, and `reInserted` comprises both `added` and unmodified triples.
 
 File name | content
 -- | --
-added | extracted triples not contained in the Cache
-removed | cached triples not present in the extraction
-reInserted | union of cached and extracted triples, but without removed
-clear | only subjects of all added, removed and reInserted triples
+`added` | extracted triples not contained in the Cache
+`removed` | cached triples not present in the extraction
+`reInserted` | union of cached and extracted triples, but without `removed`
+`clear` | only subjects of all `added`, `removed` and `reInserted` triples
+
+While `added` and `removed` are always produced, the `clear`/`reinsert` sets are only produced if a page was updated a certain number of times (thus the columns timesUpdated in the Cache). 
 
 The files are written if either the number of pages or the number of triples in the publishing queue reaches a threshold, so each file contains triples from multiple pages (see class Publisher).
 
