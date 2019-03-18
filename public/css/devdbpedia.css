@@ -64,3 +64,7 @@ body {
     counter-increment: h4;
     content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) " "
 }
+
+.is-active-link::before {
+    background-color: #2A8A75;
+}
