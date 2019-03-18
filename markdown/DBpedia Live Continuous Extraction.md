@@ -18,13 +18,18 @@ It is also a blocking queue. That means, if necessary, a take() will wait for th
 All fields and methods of the queue are static.
 
 ## Feeder
-Feeders provide an interface between a stream that contains updates of Wikipedia pages and DBpedia Live Continuous Extraction. The abstract class Feeder fetches a Collection of LiveQueueItems and eventually puts them into the Live Queue. How the items are collected and kept is up to the implementation of its extending classes. 
+Feeders provide an interface between a stream that contains updates of Wikipedia pages and DBpedia Live Continuous Extraction. The abstract class Feeder fetches a Collection of LiveQueueItems and eventually puts them into the Live Queue. How the items are collected and kept is up to the implementation of its extending classes.
 
-Currently the EventStreamsFeeder is the only Feeder in use. It consumes the Wikimedia EventStreams recentchange stream (see [https://wikitech.wikimedia.org/wiki/EventStreams](https://wikitech.wikimedia.org/wiki/EventStreams)), using Akka Streams. The EventStreams API uses the ServerSentEvent protocol in order to transmit events, which in turn makes use of the chunked transfer encoding of http. The Akka part of this functionality is implemented in the Scala class EventstreamsHelper.
+LiveQueueItems can be created based on either the title of a Wikipedia page or on its page ID.
 
-## Processing
-The logic of what is happening with a LiveQueueItem once it is taken out of the queue is implemented in the classes LiveExtractionConfigLoader and PageProcessor.
+Currently the EventStreamsFeeder is used in order to fetch information about recent changes of Wikipedia pages. It consumes the Wikimedia EventStreams recentchange stream (see [https://wikitech.wikimedia.org/wiki/EventStreams](https://wikitech.wikimedia.org/wiki/EventStreams)), using Akka Streams. The EventStreams API uses the ServerSentEvent protocol in order to transmit events, which in turn makes use of the chunked transfer encoding of http. The Akka part of this functionality is implemented in the Scala class EventstreamsHelper.
+
+The UnmodifiedFeeder is used in order to update pages that are present in the Live Cache but have not been updated for a certain time interval.
+
 ### Live Cache: a relational database
+
+The Live Cache is used to produce the diff between different versions of a page. Each row represents a page, which is identified by its page ID. The json contains the triples. They are stored per extractor together with their md5sum hash.
+
 The tablestructure is as follows:
 
 pageID | title | updated |timesUpdated |json |subjects |diff |error
