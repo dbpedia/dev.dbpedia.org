@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  <body class="theme-base-night">
+<body class="theme-base-night">
 
   {% include sidebar.html %}
 
@@ -16,12 +16,20 @@
         </h3>
       </div>
     </div>
-
-      <div class="container content">
+    <div class="container content">
         {{ content }}
-
-      </div>
     </div>
-
-  </body>
+    <div class="toc toc-right js-toc navbar"></div>
+  </div>
+  <script ="text/javascript">
+      tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '.js-toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: '.page',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h1, h2, h3',
+    });
+  </script>
+</body>
 </html>
