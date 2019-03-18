@@ -38,20 +38,37 @@ wikipedia page ID| wikipedia page title | timestamp of when the page was updated
 
 The SQL statements  and how they are used is defined in DBpediaSQLQueries and JSONCache respectively.
 
-in progress
 
 ### Extractors
 The extractors all live in the core module. Which extractors will be used is configured in the ./live.xml file.
 
-## Output and Live Mirror
-in progress
+
+## Processing
+Once a LiveQueueItem  is taken out of the Live Queue the extraction process is triggered, and then a diff is produced based on the content of the Live Cache. The logic of this process is implemented in the classes PageProcessor (configurable number of threads, taking an item out of the queue) and LiveExtractionConfigLoader (extracting triples from a page, per configured extractor).
+
+The resulting graph from the extraction is processed in a pipeline of Live Destinations that handles the diff (first stage) as well as the publishing and the update of the Live Cache (final stages).
+
+The first stage of the pipeline receives a set of triples which is the result of a specific extractor applied to a page, and hashes them. It retrieves all triples of the corresponding Cache Item which are stored per extractor together with their hash (this information is contained in the JSON of the Cache Item). The stage produces three triplesets: added, removed and unmodified. If the hashes don't differ, all received triples become "unmodified". If the hashes differ, the actual filtering of the cache and the received triples takes place, producing the three triplesets accordingly.
+
+The second stage of the pipeline updates the Live Cache and transforms the three triplesets added, removed and unmodified to a DiffData Element that is put into a publishing queue after all configured extractors are applied to a page.
+
+A DiffData element consists of a pageID and the four changesets added, removed, clear and reInserted which are finally written to files as N-Triples. Added and removed correspond to the added and removed triples from the former stage, whereas clear consists of the subjects of all the added, removed and unmodified triples, and reInserted of the added and unmodified triples.
+
+File name | content
+-- | --
+added | extracted triples not contained in the Cache
+removed | cached triples not present in the extraction
+reInserted | union of cached and extracted triples, but without removed
+clear | only subjects of all added, removed and reInserted triples
+
+The files are written if either the number of pages or the number of triples in the publishing queue reaches a threshold, so each file contains triples from multiple pages (see class Publisher).
+
 
 ## Initialization and Synchronization
 
 One central question is how the Live Extraction and the triplestore are initialized and then kept in sync. By its nature, the Live module is designed to track changes, but not to cover the entirety of Wikipedia pages, where a lot of old pages might not be edited for a long time. On the other hand, it is not possible to feed the triplestore with a DBpedia dump, as the diffs are produced in the Live Cache and this would result in invalid triples in the triplestore. 
 
 The Live Cache is playing the key role to solve this issue. The initialization process consist of feeding all pageIds to the Live Cache, so there exists a row for every page, where the timestamp of the field "updated" is set to an artificial date in the past, and all other fields are empty. Then, the UnmodifiedFeeder is started at the same time as any other feeder, eventually visiting every row that has not been updated for a certain time interval (that should be picked in a reasonable relation to the one used when initializing the rows of the cache), and putting its pageId into the queue in order to get processed. That way, the "bootstrapping" of live is happening within the module and the Live Mirror can consume the output of the Live Extraction without having to deal with the initialization.
-
 
 
 # A Brief History of Live
