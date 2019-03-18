@@ -74,13 +74,21 @@ One central question is how the Live Extraction and the triplestore are initiali
 
 The Live Cache is playing the key role to solve this issue. The initialization process consist of feeding all pageIds to the Live Cache, so there exists a row for every page, where the timestamp of the field "updated" is set to an artificial date in the past, and all other fields are empty. Then, the UnmodifiedFeeder is started at the same time as any other feeder, eventually visiting every row that has not been updated for a certain time interval (that should be picked in a reasonable relation to the one used when initializing the rows of the cache), and putting its pageId into the queue in order to get processed. That way, the "bootstrapping" of live is happening within the module and the Live Mirror can consume the output of the Live Extraction without having to deal with the initialization.
 
-
-# A Brief History of Live
-in progress
-# Issues
-in progress
 # Sources and Further Reading
-in progress
+S. Hellmann, C. Stadler, J.Lehmann, and S. Auer: [DBpedia Live Extraction](http://svn.aksw.org/papers/2009/ODBASE_LiveExtraction/dbpedia_live_extraction_public.pdf)
+In: Meersman, R., Dillon, T. and Herrero, P. (eds.) On the Move to Meaningful Internet Systems: OTM 2009, pp. 1209-1223.
+Springer, Berlin/Heidelberg (2009).
+
+
+C. Stadler, M. Martin, J. Lehmann, and S. Hellmann: [Update Strategies for DBpedia Live.](https://pdfs.semanticscholar.org/10a2/4110b217fc70c08d3a70f40a589475171328.pdf)
+In: Proceedings of the Sixth Workshop on Scripting and Development for the Semantic Web, Crete, Greece, May 31, 2010.
+
+
+M. Morsey, J. Lehmann, S. Auer, C. Stadler and S. Hellmann: [DBpedia and the Live Extraction of Structured Data from Wikipedia](https://pdfs.semanticscholar.org/593f/1b2f4ff837378fe48ffa39c101895049391d.pdf). In: Program: electronic library and information systems (2012). pp.157-181. DOI: 10.1108/00330331211221828. 
+
+L. Faber, S. Haarmann, S. Serth: [Serving Live Multimedia for the Linked Open Data Cloud. Making DBpedia Live Again](https://dl.gi.de/handle/20.500.12116/4028). In: Maximilian Eibl, Martin Gaedke. (eds.) Lecture Notes in Informatics (LNI), Gesellschaft für Informatik, Bonn (2017). 
+
+
 # Installation and Configuration
 Prerequisites:
 ```
