@@ -65,6 +65,13 @@ body {
     content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) " "
 }
 
+
+
+/* toc-bot adjustments */
 .is-active-link::before {
-    background-color: #2A8A75;
+    background-color: #2A8A75 !important;
+}
+
+.container.content {
+    margin-bottom : 100vh;
 }
