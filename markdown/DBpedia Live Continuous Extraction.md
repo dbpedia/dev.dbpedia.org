@@ -133,7 +133,7 @@ cd extraction-framework/scripts
 ../run UnmodifiedFeederCacheGenerator /data/dbpedia .nt.gz 2013-02-01 en
 ```
 
-After successfully running the UnmodifiedFeederCacheGenerator you have a file named something like <lang>-cache_generate.sql that consists of lines like this: 
+After successfully running the UnmodifiedFeederCacheGenerator you have a file named something like `<lang>-cache_generate.sql` that consists of lines like this: 
 
 ```
 INSERT INTO DBPEDIALIVE_CACHE(pageID, title, updated) VALUES(15346757, 'Battery_watch', '2018-01-01') ; 
