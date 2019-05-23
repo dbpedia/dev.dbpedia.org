@@ -109,9 +109,9 @@ java 8
   * Clone the Extraction Framework.
   * Copy the default .ini file and the default .xml file and adapt the new files to your setting.
 ```
-cp /extraction-framework/live/live.default.ini extraction-framework/live/live.ini
+$ cp /extraction-framework/live/live.default.ini extraction-framework/live/live.ini
 
-cp /extraction-framework/live/live.default.xml extraction-framework/live/live.xml
+$ cp /extraction-framework/live/live.default.xml extraction-framework/live/live.xml
 ```
 
 
@@ -143,8 +143,8 @@ cache.pw    = <password>
 
 Create the table DBPEDIALIVE_CACHE as in /extraction-framework/live/src/main/SQL/dbstructure.sql. 
 ```
-cd /extraction-framework/live/src/main/SQL/
-mysql -u root -p your_database_name < dbstructure.sql
+$ cd /extraction-framework/live/src/main/SQL/
+$ mysql -u root -p your_database_name < dbstructure.sql
 ```
 
 In order to initialize the Live Cache with a current dump of pageIDs (see section Initialization and Synchronization), get the latest dump file of the pageIds, in .nt, .ttl, .nq or .tql format (or suffixes of compressed files like .ttl.gz or .nt.bz2), containing either IRIs or URIs (like [this](http://downloads.dbpedia.org/2016-10/core-i18n/en/page_ids_en.ttl.bz2), for example). 
@@ -175,8 +175,8 @@ Then run [this script](https://github.com/dbpedia/extraction-framework/blob/mast
 Example run: 
 
 ```
-cd extraction-framework/scripts
-../run UnmodifiedFeederCacheGenerator /path/to/yourindexfolder  .ttl.bz2 2018-01-01 ar ca cs de en
+$ cd extraction-framework/scripts
+$ ../run UnmodifiedFeederCacheGenerator /path/to/yourindexfolder  .ttl.bz2 2018-01-01 ar ca cs de en
 ```
 
 After successfully running the UnmodifiedFeederCacheGenerator you have files named something like `<lang>-cache_generate.sql` that consist of lines like this: 
@@ -187,14 +187,14 @@ INSERT INTO DBPEDIALIVE_CACHE(wikiLanguage, pageID, title, updated) VALUES("en",
 
 Feed this file to your database.
 ```
-mysql -u root -p your_database_name < en-cache_generate.sql
+$ mysql -u root -p your_database_name < en-cache_generate.sql
 ```
 
   * run the install-run script (after the first successful run you can use only "run" instead of "install-run"):
   ```
-  cd /extraction-framework/live/
-  ../instal-run live
+$ cd /extraction-framework/live/
+$   ../instal-run live
   ```
 Control the published files in your publishDiffRepoPath.
 
-Read the logs at /extraction-framework/live/log/main.log*
+Read the logs at `/extraction-framework/live/log/main.log*`
