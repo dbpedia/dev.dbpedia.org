@@ -17,7 +17,7 @@ Hence, we propose the DBpedia Global ID Management. In a nutshell it materialize
 | Snapshot                                	| Is the (materialized) state of clustering in the ID Management given the set of links at a fixed point of time. The current snapshot is accessible as dump or in a resolution service                                                                                                                                                                                                     	|
 
 ## Global ID Snapshot Release
-The assigment of dataset-specific identifiers (IRIs) to  DBpedia Global IDs as well as the assignment of identifiers to clusters is published on the DBpedia Databus under [https://downloads.dbpedia.org/repo/dev/global-id-management/sameas-clusters](https://downloads.dbpedia.org/repo/dev/global-id-management/sameas-clusters).
+The assigment of dataset-specific identifiers (IRIs) to  DBpedia Global IDs as well as the assignment of identifiers to clusters is published on the DBpedia Databus under [https://databus.dbpedia.org/dbpedia/id-management/global-ids](https://databus.dbpedia.org/dbpedia/id-management/global-ids).
 
 If one looks up the corresponding lines in a snapshot version of a `sameas-clusters-<*version-nr*>.tsv.bz2` file
 
