@@ -1,10 +1,8 @@
-DBpedia Live Services are currently under maintenance due to changes of the Wikimedia Recent Changes API and general reconsideration of the architecture.
-
 This documentation is intended for developers who want to understand the structure of DBpedia Live Continuous Extraction as a startingpoint for contributing to the source code. If you want to maintain your own Live Endpoint see the documentation of DBpedia Live Mirror. Installation instructions in this article cover only the installation of the Live Module that extracts triples from recently changed Wikipedia pages.
 
 
 # Architecture
-The DBpedia Live module is intended to provide a continuously (live with a delay period) updated version of DBpedia, as an extension to the regular full dump releases as well as diff files between consecutive dump releases. It tries to bridge the gap between the time of 2 dump releases (usually at least 2 weeks due to Wikimedia Dump release interval) by extracting Wikipedia pages on demand, after they have been modified.
+The DBpedia Live module is intended to provide a continuously (live with a delay period) updated version of DBpedia, as an extension to the regular full dump releases as well as diff files between consecutive dump releases. It tries to bridge the gap between the time of 2 dump releases (usually at least 2 weeks due to Wikimedia Dump release interval) by extracting Wikipedia pages on demand, after they have been modified. Live is also used in order to provide (dump) extraction of abstracts in multiple languages ([DBpedia Chapter languages only](https://wiki.dbpedia.org/join/chapters)), using the [NIF extractors](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/scala/org/dbpedia/extraction/mappings/AbstractExtractorWikipedia.scala).
 
 The backbone of DBpedia Live is a queue to keep track of the pages that need to be processed and a relational database (called Live Cache) that is used to store extracted triples and decide whether they are supposed to be added, deleted or reinserted. These triples are published as gzipped N-Triples files. The Live Mirror can consume the information contained in these N-Triples files in order to synchronize a Virtuoso Triple Store. By doing so, the extraction and publication of the changed triples on the one hand and synchronization of changed triples to a Triplestore on the other hand are decoupled.
 
@@ -26,7 +24,7 @@ LiveQueueItems can be created based on either the title of a Wikipedia page or o
 
 Currently the EventStreamsFeeder is used in order to fetch information about recent changes of Wikipedia pages. It consumes the Wikimedia EventStreams recentchange stream (see [https://wikitech.wikimedia.org/wiki/EventStreams](https://wikitech.wikimedia.org/wiki/EventStreams)), using Akka Streams. The EventStreams API uses the ServerSentEvent protocol in order to transmit events, which in turn makes use of the chunked transfer encoding of http. The Akka part of this functionality is implemented in the Scala class EventstreamsHelper.
 
-The UnmodifiedFeeder is used in order to update pages that are present in the Live Cache but have not been updated for a certain time interval.
+The UnmodifiedFeeder is used in order to update pages that are present in the Live Cache but have not been updated for a certain time interval (called `feeder.unmodified.minDaysAgo` in the `live.ini` configuration file).
 
 ## Live Cache: a relational database
 
@@ -42,7 +40,7 @@ The SQL statements  and how they are used is defined in DBpediaSQLQueries and JS
 
 
 ## Extractors
-The extractors all live in the core module. Which extractors will be used is configured in the ./live.xml file.
+The extractors all live in the core module. There is a separate config file `live.xml` (`live.default.xml`) that specifies the Extractors together with the Wiki Languages they should be used for. This is the only place for language configuration. 
 
 
 ## Processing
@@ -72,7 +70,20 @@ The files are written if either the number of pages or the number of triples in 
 
 One central question is how the Live Extraction and the triplestore are initialized and then kept in sync. By its nature, the Live module is designed to track changes, but not to cover the entirety of Wikipedia pages, where a lot of old pages might not be edited for a long time. On the other hand, it is not possible to feed the triplestore with a DBpedia dump, as the diffs are produced in the Live Cache and this would result in invalid triples in the triplestore. 
 
-The Live Cache is playing the key role to solve this issue. The initialization process consist of feeding all pageIds to the Live Cache, so there exists a row for every page, where the timestamp of the field "updated" is set to an artificial date in the past, and all other fields are empty. Then, the UnmodifiedFeeder is started at the same time as any other feeder, eventually visiting every row that has not been updated for a certain time interval (that should be picked in a reasonable relation to the one used when initializing the rows of the cache), and putting its pageId into the queue in order to get processed. That way, the "bootstrapping" of live is happening within the module and the Live Mirror can consume the output of the Live Extraction without having to deal with the initialization.
+The Live Cache is playing the key role to solve this issue. The initialization process consist of feeding all pageIds to the Live Cache, so there exists a row for every page, where the timestamp of the field "updated" is set to an artificial date in the past, and all other fields are empty. Then, the UnmodifiedFeeder is started at the same time as any other feeder, eventually visiting every row that has not been updated for a certain time interval (that must be smaller than the interval between the initial timestamp of the pageIDs and now), and putting its pageId into the queue in order to get processed. That way, the "bootstrapping" of live is happening within the module and the Live Mirror can consume the output of the Live Extraction without having to deal with the initialization.
+
+## Available instances
+There are currently three instances of DBpedia Live that publish N-triple files: 
+
++ https://95.217.42.166/changesets
+First instance, containing all available diffs since 2013
+In Sync with the Openlink Virtuoso Triplestore 
++ https://95.217.42.166/changesets-fresh-init
+Second instance, initialized in 2019.
+Intended for users who want to maintain their own, new triplestore.
++ https://95.217.42.166/changesets-abstracts
+Instance that provides only short and long abstracts in all Chapter Languages.
+
 
 # Sources and Further Reading
 S. Hellmann, C. Stadler, J.Lehmann, and S. Auer: [DBpedia Live Extraction](http://svn.aksw.org/papers/2009/ODBASE_LiveExtraction/dbpedia_live_extraction_public.pdf)
@@ -93,7 +104,7 @@ L. Faber, S. Haarmann, S. Serth: [Serving Live Multimedia for the Linked Open Da
 Prerequisites:
 ```
 maven
-java 8 or higher
+java 8 
 ```
   * Clone the Extraction Framework.
   * Copy the default .ini file and the default .xml file and adapt the new files to your setting.
@@ -102,14 +113,24 @@ cp /extraction-framework/live/live.default.ini extraction-framework/live/live.in
 
 cp /extraction-framework/live/live.default.xml extraction-framework/live/live.xml
 ```
-Currently you have to create a file pw.txt:
-```
-> /extraction-framework/live/pw.txt
-```
 
-The live.xml file lets you configure which extractors you want to use. Adaptation should not be necessary in most cases.
 
-The live.ini file lets you configure many things, for example the working directory, the output resp. publish directory, the number of threads and the selection of namespaces, language and also which feeders will be active.
+The live.xml file lets you configure which extractors and which Wiki Languages, per extractor, you want to use. The name of this file must also be given in the `live.ini` file in order to provide more flexibility during the development process.
+
+The `live.ini` file lets you configure many things, for example the working directory, the output resp. publish directory, the number of threads and the selection of namespaces, language and also which feeders will be active.
+
+These parameters must be adapted:
+```
+working_directory
+publishDiffRepoPath
+languageExtractorConfig
+cache.xxxx (see also next paragraph)
+```
+These parameters are configurable to your needs:
+```
+ProcessingThreads
+feeder.xxx.xxxx (currently only unmodified and eventstreams relevant)
+```
 
   * Prepare the Live Cache
 
@@ -121,8 +142,33 @@ cache.pw    = <password>
 ```
 
 Create the table DBPEDIALIVE_CACHE as in /extraction-framework/live/src/main/SQL/dbstructure.sql. 
+```
+cd /extraction-framework/live/src/main/SQL/
+mysql -u root -p your_database_name < dbstructure.sql
+```
 
 In order to initialize the Live Cache with a current dump of pageIDs (see section Initialization and Synchronization), get the latest dump file of the pageIds, in .nt, .ttl, .nq or .tql format (or suffixes of compressed files like .ttl.gz or .nt.bz2), containing either IRIs or URIs (like [this](http://downloads.dbpedia.org/2016-10/core-i18n/en/page_ids_en.ttl.bz2), for example). 
+
+You need a folderstructure and naming convention like this (applies both for single and multilanguage usage):
+```
+yourindexfolder
+├── arwiki
+│ └── 20180101
+│     └── arwiki-20180101-page-ids.ttl.bz2
+├── cawiki
+│ └── 20180101
+│     └── cawiki-20180101-page-ids.ttl.bz2
+├── cswiki
+│ └── 20180101
+│     └── cswiki-20180101-page-ids.ttl.bz2
+├── dewiki
+│ └── 20180101
+│     └── dewiki-20180101-page-ids.ttl.bz2
+├── enwiki
+│ └── 20180101
+│     └── enwiki-20180101-page-ids.ttl.bz2
+		
+```
  
 Then run [this script](https://github.com/dbpedia/extraction-framework/blob/master/scripts/src/main/scala/org/dbpedia/extraction/scripts/UnmodifiedFeederCacheGenerator.scala). 
  
@@ -130,18 +176,21 @@ Example run:
 
 ```
 cd extraction-framework/scripts
-../run UnmodifiedFeederCacheGenerator /data/dbpedia .nt.gz 2013-02-01 en
+../run UnmodifiedFeederCacheGenerator /path/to/yourindexfolder  .ttl.bz2 2018-01-01 ar ca cs de en
 ```
 
-After successfully running the UnmodifiedFeederCacheGenerator you have a file named something like `<lang>-cache_generate.sql` that consists of lines like this: 
+After successfully running the UnmodifiedFeederCacheGenerator you have files named something like `<lang>-cache_generate.sql` that consist of lines like this: 
 
 ```
-INSERT INTO DBPEDIALIVE_CACHE(pageID, title, updated) VALUES(15346757, 'Battery_watch', '2018-01-01') ; 
+INSERT INTO DBPEDIALIVE_CACHE(wikiLanguage, pageID, title, updated) VALUES("en", 15346757, 'Battery_watch', '2018-01-01') ; 
 ```
 
 Feed this file to your database.
+```
+mysql -u root -p your_database_name < en-cache_generate.sql
+```
 
-  * run the install-run script
+  * run the install-run script (after the first successful run you can use only "run" instead of "install-run"):
   ```
   cd /extraction-framework/live/
   ../instal-run live
