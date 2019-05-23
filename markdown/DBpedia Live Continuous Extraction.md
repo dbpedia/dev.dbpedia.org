@@ -108,6 +108,7 @@ java 8
 ```
   * Clone the Extraction Framework.
   * Copy the default .ini file and the default .xml file and adapt the new files to your setting.
+
 ```
 $ cp /extraction-framework/live/live.default.ini extraction-framework/live/live.ini
 
@@ -120,6 +121,7 @@ The live.xml file lets you configure which extractors and which Wiki Languages, 
 The `live.ini` file lets you configure many things, for example the working directory, the output resp. publish directory, the number of threads and the selection of namespaces, language and also which feeders will be active.
 
 These parameters must be adapted:
+
 ```
 working_directory
 publishDiffRepoPath
@@ -127,6 +129,7 @@ languageExtractorConfig
 cache.xxxx (see also next paragraph)
 ```
 These parameters are configurable to your needs:
+
 ```
 ProcessingThreads
 feeder.xxx.xxxx (currently only unmodified and eventstreams relevant)
@@ -135,6 +138,7 @@ feeder.xxx.xxxx (currently only unmodified and eventstreams relevant)
   * Prepare the Live Cache
 
 Create a mysql database. The name is up to you. User, password and name of the database have to be configured accordingly in the live.ini file.
+
 ```
 cache.dsn   = jdbc:mysql://localhost/<name_of_database>?autoReconnect=true&useUnicode=yes
 cache.user  = <name_of_user>
@@ -142,6 +146,7 @@ cache.pw    = <password>
 ```
 
 Create the table DBPEDIALIVE_CACHE as in /extraction-framework/live/src/main/SQL/dbstructure.sql. 
+
 ```
 $ cd /extraction-framework/live/src/main/SQL/
 $ mysql -u root -p your_database_name < dbstructure.sql
@@ -150,6 +155,7 @@ $ mysql -u root -p your_database_name < dbstructure.sql
 In order to initialize the Live Cache with a current dump of pageIDs (see section Initialization and Synchronization), get the latest dump file of the pageIds, in .nt, .ttl, .nq or .tql format (or suffixes of compressed files like .ttl.gz or .nt.bz2), containing either IRIs or URIs (like [this](http://downloads.dbpedia.org/2016-10/core-i18n/en/page_ids_en.ttl.bz2), for example). 
 
 You need a folderstructure and naming convention like this (applies both for single and multilanguage usage):
+
 ```
 yourindexfolder
 ├── arwiki
@@ -186,11 +192,13 @@ INSERT INTO DBPEDIALIVE_CACHE(wikiLanguage, pageID, title, updated) VALUES("en",
 ```
 
 Feed this file to your database.
+
 ```
 $ mysql -u root -p your_database_name < en-cache_generate.sql
 ```
 
   * run the install-run script (after the first successful run you can use only "run" instead of "install-run"):
+
   ```
 $ cd /extraction-framework/live/
 $   ../instal-run live
