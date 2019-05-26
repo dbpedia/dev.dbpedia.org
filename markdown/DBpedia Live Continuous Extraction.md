@@ -75,13 +75,13 @@ The Live Cache is playing the key role to solve this issue. The initialization p
 ## Available instances
 There are currently three instances of DBpedia Live that publish N-triple files: 
 
-+ [https://95.217.42.166/changesets](https://95.217.42.166/changesets)
++ [http://95.217.42.166/changesets](http://95.217.42.166/changesets)
 First instance, containing all available diffs since 2013
 In Sync with the Openlink Virtuoso Triplestore 
-+ [https://95.217.42.166/changesets-fresh-init](https://95.217.42.166/changesets-fresh-init)
++ [http://95.217.42.166/changesets-fresh-init](http://95.217.42.166/changesets-fresh-init)
 Second instance, initialized in 2019.
 Intended for users who want to maintain their own, new triplestore.
-+ [https://95.217.42.166/changesets-abstracts]( https://95.217.42.166/changesets-abstracts)
++ [http://95.217.42.166/changesets-abstracts]( http://95.217.42.166/changesets-abstracts)
 Instance that provides only short and long abstracts in all Chapter Languages.
 
 
