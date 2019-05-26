@@ -32,9 +32,9 @@ The Live Cache is used to produce the diff between different versions of a page.
 
 The tablestructure is as follows:
 
-pageID | title | updated |timesUpdated |json |subjects |diff |error
--- | -- | -- | --|--|--|--|--
-wikipedia page ID| wikipedia page title | timestamp of when the page was updated | total times the page was updated | latest extraction in JSON format | Distinct subjects extracted from the current page (might be more than one ) | keeps the latest triple diff | if there was an error the last time the page was updated
+wikiLanguage | pageID | title | updated |timesUpdated |json |subjects |diff |error
+-- | -- | -- | -- | --|--|--|--|--
+wiki language | wikipedia page ID| wikipedia page title | timestamp of when the page was updated | total times the page was updated | latest extraction in JSON format | Distinct subjects extracted from the current page (might be more than one ) | keeps the latest triple diff | if there was an error the last time the page was updated
 
 The SQL statements  and how they are used is defined in [DBpediaSQLQueries](https://github.com/dbpedia/extraction-framework/blob/master/live/src/main/java/org/dbpedia/extraction/live/storage/DBpediaSQLQueries.scala) and [JSONCache](https://github.com/dbpedia/extraction-framework/blob/master/live/src/main/java/org/dbpedia/extraction/live/storage/JSONCAche.scala) respectively.
 
