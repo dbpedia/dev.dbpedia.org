@@ -52,13 +52,13 @@ The first stage of the pipeline receives a set of triples which is the result of
 
 The second and final stage of the pipeline updates the Live Cache and transforms the three triplesets `added`, `removed` and `unmodified` to a DiffData Element that is put into a publishing queue after all configured extractors are applied to a page.
 
-A DiffData element consists of a pageID and the four changesets `added`, `removed`, `clear` and `reInserted` which are finally written to files as N-Triples. `Added` and `removed` correspond to the `added` and `removed` triples from the former stage, whereas `clear` consists of the subjects of all the `added`, `removed` and unmodified triples, and `reInserted` comprises both `added` and unmodified triples.
+A DiffData element consists of a pageID and the four changesets `added`, `removed`, `clear` and `reInserted` which are finally written to files as N-Triples. `Added`, `removed` and `reinserted` correspond to the `added`, `removed` and `unmodified` triples from the former stage respectively, whereas `clear` consists of the subjects of all the `added`, `removed` and `unmodified` triples.
 
 File name | content
 -- | --
 `added` | extracted triples not contained in the Cache
 `removed` | cached triples not present in the extraction
-`reInserted` | union of cached and extracted triples, but without `removed`
+`reInserted` | triples contained in the Cache before the current extraction
 `clear` | only subjects of all `added`, `removed` and `reInserted` triples
 
 While `added` and `removed` are always produced, the `clear`/`reinsert` sets are only produced if a page was updated a certain number of times (thus the columns timesUpdated in the Cache). 
