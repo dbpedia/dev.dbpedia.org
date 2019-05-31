@@ -134,7 +134,11 @@ These parameters are configurable to your needs:
 ProcessingThreads
 feeder.xxx.xxxx (currently only unmodified and eventstreams relevant)
 ```
-
+  * Create the file `EventStreamsFeeder.dat` in your `working_directory` and insert a default resuming date in the past: 
+```
+$ echo 1970-01-19T01:08:29Z > /path/to/working_directory/EventStreamsFeeder.dat
+```
+  
   * Prepare the Live Cache
 
 Create a mysql database. The name is up to you. User, password and name of the database have to be configured accordingly in the live.ini file.
