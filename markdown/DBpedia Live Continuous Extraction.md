@@ -72,7 +72,7 @@ One central question is how the Live Extraction and the triplestore are initiali
 
 The Live Cache is playing the key role to solve this issue. The initialization process consist of feeding all pageIds to the Live Cache, so there exists a row for every page, where the timestamp of the field "updated" is set to an artificial date in the past, and all other fields are empty. Then, the UnmodifiedFeeder is started at the same time as any other feeder, eventually visiting every row that has not been updated for a certain time interval (that must be smaller than the interval between the initial timestamp of the pageIDs and now), and putting its pageId into the queue in order to get processed. That way, the "bootstrapping" of live is happening within the module and the Live Mirror can consume the output of the Live Extraction without having to deal with the initialization.
 
-## Available instances
+# Available instances
 There are currently three instances of DBpedia Live that publish N-triple files: 
 
 + [http://95.217.42.166/changesets](http://95.217.42.166/changesets)
