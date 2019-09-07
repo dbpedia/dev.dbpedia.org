@@ -1,6 +1,7 @@
 Title of page,Parent page,Link to Github repository,Raw link to markdownfile
 Download Data,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
 Download DBpedia,Download Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
+Replicate SPARQL Endpoint,Download Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
 Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
