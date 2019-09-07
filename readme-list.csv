@@ -1,16 +1,16 @@
 Title of page,Parent page,Link to Github repository,Raw link to markdownfile
-Download Data,,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Download_Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_Data.md
-Download DBpedia,Download Data,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Download_DBpedia.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_DBpedia.md
-Setup DBpedia SPARQL Database,Download Data,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Setup_DBpedia_SPARQL_Database.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Setup_DBpedia_SPARQL_Database.md
+Download Data,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Download_Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_Data.md
+Download DBpedia,Download Data,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Download_DBpedia.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_DBpedia.md
+Setup DBpedia SPARQL Database,Download Data,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Setup_DBpedia_SPARQL_Database.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Setup_DBpedia_SPARQL_Database.md
 Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Improve_DBpedia.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
-Databus Client,Databus,https://github.com/dbpedia/databus-client/blob/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-client/master/README.md
-Databus Derive Maven Integration,Databus,https://github.com/dbpedia/databus-derive/blob/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-derive/master/README.md
-Databus Mods,Databus,https://github.com/dbpedia/databus-mods/blob/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-mods/master/README.md
+Databus Client,Databus,https://github.com/dbpedia/databus-client/edit/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-client/master/README.md
+Databus Derive Maven Integration,Databus,https://github.com/dbpedia/databus-derive/edit/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-derive/master/README.md
+Databus Mods,Databus,https://github.com/dbpedia/databus-mods/edit/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-mods/master/README.md
 Databus Upload User Manual,Databus,https://github.com/dbpedia/databus-maven-plugin/wiki/User-Manual-v1.3,https://raw.githubusercontent.com/wiki/dbpedia/databus-maven-plugin/User-Manual-v1.3.md
 Databus Upload Client,Databus,https://github.com/dbpedia/databus-maven-plugin,https://raw.githubusercontent.com/dbpedia/databus-maven-plugin/master/README.md
-Extraction,,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
+Extraction,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
 Extraction QuickStart,Extraction,https://github.com/dbpedia/extraction-framework,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/QuickStart.md
 Mappingbased Extraction,Extraction,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappingbased%20Extraction.md
 Applications (Self-Deploy),,,
