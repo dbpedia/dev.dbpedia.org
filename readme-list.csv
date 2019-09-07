@@ -5,9 +5,9 @@ Set Up Own DBpedia SPARQL Endpoint,Download Data,,https://raw.githubusercontent.
 Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Improve_DBpedia.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
-Databus Client,Databus,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
-Databus Derive Maven Integration,Databus,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
-Databus Mods,Databus,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
+Databus Client,Databus,https://github.com/dbpedia/databus-client/blob/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-client/master/README.md
+Databus Derive Maven Integration,Databus,https://github.com/dbpedia/databus-derive/blob/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-derive/master/README.md
+Databus Mods,Databus,https://github.com/dbpedia/databus-mods/blob/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-mods/master/README.md
 Databus Upload User Manual,Databus,https://github.com/dbpedia/databus-maven-plugin/wiki/User-Manual-v1.3,https://raw.githubusercontent.com/wiki/dbpedia/databus-maven-plugin/User-Manual-v1.3.md
 Databus Upload Client,Databus,https://github.com/dbpedia/databus-maven-plugin,https://raw.githubusercontent.com/dbpedia/databus-maven-plugin/master/README.md
 Extraction,,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
