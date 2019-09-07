@@ -25,6 +25,7 @@ It is reserved for technical things. Other places with useful information (not d
 ## Editing this wiki
 In order not to duplicate content in the many community projects, we are transcluding markdown files from the web (mostly GitHub). 
 
+* transclusion runs every 5 minutes.
 * on top of each page, you can find a markdown link where to edit. 
 * Some of the markdown files like this about page are in https://github.com/dbpedia/dev.dbpedia.org/tree/master/markdown others are in the respective projects. 
 * In [readme-list.csv](https://github.com/dbpedia/dev.dbpedia.org/blob/master/readme-list.csv) the order of (sub-)sections is defined.  
