@@ -53,13 +53,14 @@ OFFSET 0
 
 DBpedia Databus does not host the files itself, these are hosted on the servers (i.e. storage) of its users. Databus Consumers upload their files on their own server in a folder structure mirroring the Databus URIs. Next to their files, they generate a `dataid.ttl` file in RDF-Turtle containing the metadata. We provide an [Upload Client](Databus_Upload_User_Manual) that generates the file and does a `POST` request. 
  
-### DBpedia Example with Apache2 Web Server:
+### DBpedia Download Server example (Apache2 web server)
+
 * DataID URL (this is loaded in the SPARQL API): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl
 * Databus URL (displays the information from dataid.ttl): https://databus.dbpedia.org/dbpedia/mappings/instance-types/2019.08.30
 * Apache2 web dir (downloadURLPath): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/
 * Apache2 local directory (package): `/media/bigone/25TB/www/downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/`
 
-
+## DataID explained
 
 ## Planned vocabulary changes after beta
 

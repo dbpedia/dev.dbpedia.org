@@ -13,14 +13,20 @@ Further reading can be found here:
 
 # About the DBpedia Development Wiki
 Since DBpedia's establishment in 2006, the DBpedia project, published several Terabytes of useful data. DBpedia is an open community project with contributions and extensions from thousands of developers, engineers, companies and scientists, which can proudly call themselves DBpedians for building a great, freely available knowledge graph of steadily improving quality.     
+This wiki serves as the central point for the community to document and coordinate development on the DBpedia Databus, DBpedia's data and its applications and services.
 
-This wiki serves as the central point for the community to document and coordinate development on DBpedia. 
-It is reserved for technical things. Other places with useful information (not duplicated here) are the 
+* We follow "working software over comprehensive documentation" 
+* `code snippets` and links are welcome
+* See the [Improve DBpedia](Improve_DBpedia) section 
+* Ideas to improve DBpedia can also be posted in the [forum](https://forum.dbpedia.org)
 
-* the [DBpedia forum](https://forum.dbpedia.org) for discussion and also where we copy documentation here
-* DBpedia Slack, [sign up](https://dbpedia-slack.herokuapp.com/) for chatting
-* the main website [dbpedia.org](http://dbpedia.org/) as an entry point for project presentation and first time users.  
-* Documentation of the data itself is kept in the [Databus Artifacts and Versions](https://databus.dbpedia.org/dbpedia)
+
+The wiki is reserved for technical things. Other places with useful information (not duplicated here) are 
+
+* the [DBpedia forum](https://forum.dbpedia.org) for discussion (a good place to copy documentation)
+* DBpedia Slack, [sign up](https://dbpedia-slack.herokuapp.com/) for chatting/
+* the main website [dbpedia.org](http://dbpedia.org/) as an entry point for overall presentation and first time users.  
+* Documentation of the data itself is kept in the [Databus Artifacts and Versions](https://databus.dbpedia.org/dbpedia).
 
 ## License
 All transcluded pages are informative only. We cache them from other locations on the web. Please attribute to the orignal place as mentioned in the header. Content and code in https://github.com/dbpedia/dev.dbpedia.org is CC-BY, please attribute. 
@@ -32,5 +38,6 @@ In order not to duplicate content in the many community projects, we are transcl
 * on top of each page, you can find a markdown link where to edit. 
 * Some of the markdown files like this about page are in https://github.com/dbpedia/dev.dbpedia.org/tree/master/markdown others are in the respective projects. 
 * In [readme-list.csv](https://github.com/dbpedia/dev.dbpedia.org/blob/master/readme-list.csv) the order of (sub-)sections is defined. 
+* Markdown lnks can be relative to dev.dbpedia.org `[Improve DBpedia](Improve_DBpedia)` for transcluded pages from https://github.com/dbpedia/dev.dbpedia.org
 * Issues go in [this issue tracker](https://github.com/dbpedia/dev.dbpedia.org/issues). 
 
