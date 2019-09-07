@@ -10,15 +10,17 @@ Databus is currently in Public Beta during 2019, beginning 2020
 * [Virtuoso SPARQL Editor](https://databus.dbpedia.org/repo/sparql)
 * [Faceted Search & Find service](https://databus.dbpedia.org/fct/) - some configuration issues exist, will be fixed during next maintenance
 
-**stable vocabluaries**
+**stable vocabularies**
 
 ```
 # external
-PREFIX dct:    <http://purl.org/dc/terms/>
 PREFIX dcat:   <http://www.w3.org/ns/dcat#>
+PREFIX dct:    <http://purl.org/dc/terms/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
-# DataID core
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+# DataId core
 PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
 # Databus Stable Dataset IDs
 PREFIX db:     <https://databus.dbpedia.org/>
@@ -55,13 +57,89 @@ DBpedia Databus does not host the files itself, these are hosted on the servers 
  
 ### DBpedia Download Server example (Apache2 web server)
 
-* DataID URL (this is loaded in the SPARQL API): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl
+* DataId URL (this is loaded into the SPARQL API): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl
 * Databus URL (displays the information from dataid.ttl): https://databus.dbpedia.org/dbpedia/mappings/instance-types/2019.08.30
 * Apache2 web dir (downloadURLPath): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/
 * Apache2 local directory (package): `/media/bigone/25TB/www/downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/`
 
-## DataID explained
+### `dataid.ttl` explained
+Excerpt from [dataid.ttl of DBpedia/mappings/instance-types/2019.08.30](http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl). Can be directly used in SPARQL queries. 
 
+
+
+```
+# Local Dataset URLs use # fragment URLs
+# equivalent to dcat:Dataset, a snapshot, revision or version, e.g. 2019.08.30
+# links to a set of files 
+<https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl#Dataset>
+        a                       dataid:Dataset ;
+        rdfs:label              "DBpedia Ontology instance types"@en ;
+        rdfs:comment            "..."@en ;
+        # two documentation properties using markdown
+        dct:description         "..." ;
+        dataid:groupdocu        "..." ;
+        
+        # stable Ids are added to this dataset
+        dataid:account          databus:dbpedia ;
+        dataid:group            <https://databus.dbpedia.org/dbpedia/mappings> ;
+		# artifact is the abstract identity, i.e. next version of this dataset is still the same artifact
+        dataid:artifact         <https://databus.dbpedia.org/dbpedia/mappings/instance-types> ;
+        dataid:version          <https://databus.dbpedia.org/dbpedia/mappings/instance-types/2019.08.30> ;
+      
+        ## Properties used to debug this version or artifact 
+        dataid-debug:codeReference>
+                <https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/scala/org/dbpedia/extraction/mappings/MappingExtractor.scala> ;
+        dataid-debug:documentationLocation
+                <https://github.com/dbpedia/databus-maven-plugin/blob/master/dbpedia/mappings/instance-types> ;
+        dataid-debug:feedbackChannel
+                <https://forum.dbpedia.org/c/databus-dbpedia/mappings> ;
+        dataid-debug:issueTracker
+                <https://github.com/dbpedia/extraction-framework/issues> ;
+        
+        # Other metadata
+        dct:conformsTo          "http://dataid.dbpedia.org/ns/core#" ;
+        # datasets are ordered lexicographically by SPARQL ORDER BY
+        dct:hasVersion          "2019.08.30" ;
+        dct:issued              "2019-08-30T00:00:00Z"^^xsd:dateTime ;
+        dct:license             <http://purl.oclc.org/NET/rdflicense/cc-by3.0> ;
+        dct:publisher           <https://webid.dbpedia.org/webid.ttl#this> ;
+        dataid:associatedAgent  <https://webid.dbpedia.org/webid.ttl#this> ;
+         
+        # a slight semantic change to dcat:Distribution, links to the files
+        dcat:distribution       <https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl#instance-types_lang=fr_transitive.ttl.bz2> .
+
+# local file URL also with # fragemnt URL
+<https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl#instance-types_lang=fr_transitive.ttl.bz2>
+        # this distribution just describes this file
+        a                            dataid:SingleFile ;
+        dataid:file                  <https://databus.dbpedia.org/dbpedia/mappings/instance-types/2019.08.30/instance-types_lang=fr_transitive.ttl.bz2> ;
+        dcat:downloadURL             <https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/instance-types_lang=fr_transitive.ttl.bz2> ;
+        
+        
+        dataid:associatedAgent       <https://webid.dbpedia.org/webid.ttl#this> ;
+        dataid:compression           "bzip2" ;
+        dataid:contentVariant        "transitive" , "fr" ;
+        dataid:duplicates            "0"^^xsd:decimal ;
+        dataid:formatExtension       "ttl" ;
+        dataid:isDistributionOf      <https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl#Dataset> ;
+        dataid:nonEmptyLines         "6029295"^^xsd:decimal ;
+        dataid:preview               "" ;
+        dataid:sha256sum             "fddd665c18c49862a778362763b8151702bae32ce6f9a1ba3722a076da206cb4" ;
+        dataid:signature             "QfxGaPzwrzgkIRhZb6YGbkYW5OE1WE0WKXqM2FlifXeTANR7458NQL2erl14eeHUvdHv/0OvF5ZZfegoqM49ovoKpLqhngJNqwdBBk1QzjkDZDuAqZGDbsrQdatBDfhZBhYInTthqSwFhX6sFdnTYM6AQtmgjSrj5duFqm4im1TxJ4fluX2SGnKVzcI/XBBAaBhskXxA+WoGcv07U4uIm6T0kdSa73VDK2WNrL9GQpd5MWWKdnTajbDO/v8QAe2Y0X3Pf/oN2+t+U6W9p5Zug7z2akXANjl4urRk4A84pKNpu0uyLE9ER6OhuCRUF28Lh/aIaHhzc8y61E+okfs55w==" ;
+        dataid:sorted                false ;
+        dataid:uncompressedByteSize  "888130202"^^xsd:decimal ;
+        dataid-cv:lang               "fr" ;
+        dataid-cv:tag                "transitive" ;
+        dct:conformsTo               "http://dataid.dbpedia.org/ns/core#" ;
+        dct:hasVersion               "2019.08.30" ;
+        dct:issued                   "2019-08-30T00:00:00Z"^^xsd:dateTime ;
+        dct:license                  <http://purl.oclc.org/NET/rdflicense/cc-by3.0> ;
+        dct:modified                 "2019-09-06T00:06:55Z"^^xsd:dateTime ;
+        dct:publisher                <https://webid.dbpedia.org/webid.ttl#this> ;
+        dcat:byteSize                "25882193"^^xsd:decimal ;
+        dcat:mediaType               dataid-mt:ApplicationNTriples .
+
+```
 ## Planned vocabulary changes after beta
 
 
