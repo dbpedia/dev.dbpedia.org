@@ -8,14 +8,23 @@ This is a technical documentation on how to customize SPARQL queries over the Da
 
 ## Overview
 
-* DBpedia extracts information from Wikipedia, Wikidata, Commons and other projects
+* DBpedia extracts information from all Wikipedia languages, Wikidata, Commons and other projects
 * The extraction runs monthly around the 7th, for details see the [Improve DBpedia section](http://dev.dbpedia.org/Improve_DBpedia) 
-* You can also read the documentation and create custom SPARQL queries at individual datasets at the [Databus DBpedia Account](https://databus.dbpedia.org/dbpedia)
+* You can also read the documentation and create custom SPARQL queries for individual datasets at the [Databus DBpedia Account](https://databus.dbpedia.org/dbpedia)
+* The data is split into different modules or groups according to their dependencies
+
+## Modules
+
+* **[generic](https://databus.dbpedia.org/dbpedia/generic)** - available for ~140 languages, based on the [pages-articles-multistream Wikimedia dumps](https://dumps.wikimedia.org/), uses [the automatic extractors written in scala](https://github.com/dbpedia/extraction-framework/tree/master/core/src/main/scala/org/dbpedia/extraction/mappings) on the Wiki syntax and produces predicates of the form `http://dbpedia.org/property` or `http://$lang.dbpedia.org/property` as well as other standard vocabularies, such as `foaf`, `rdfs:label`, `skos`, `wgs84` . They have the broadest coverage and decent quality. 
+* **[mappings](https://databus.dbpedia.org/dbpedia/mappings)** - avalailable for ~40 languages. The [InfoboxMappingsExtractor](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/scala/org/dbpedia/extraction/mappings/InfoboxMappingsExtractor.scala) can be configured and optimized with easier to write rules called mappings, edited in the Mappings Wiki. This module produces  triples with `http://dbpedia.org/ontology/` predicates. They have a higher quality, but are fewer. They are an improved complement of the `generic` module. Also ontology types using `rdf:type` are in this module. 
+* **[wikidata](https://databus.dbpedia.org/dbpedia/wikidata)** - applies a set of extractors and mappings on the [Wikidata XML dumps](https://dumps.wikimedia.org/wikidatawiki/) to make Wikidata compatible with `generic` and `mappings`. Uses `http://wikidata.dbpedia.org/resource/Q[0-9+]` as subject. Also has configurable Mappings Extractor to map `P[0-9]+` to `http://dbpedia.org/ontology` and other standard vocabularies. 
+* **offline - [text](https://databus.dbpedia.org/dbpedia/text)** - available in 140 languages, uses the HTML queried from the Wikipedia API to extract short and long abstracts and other relevant information for Natural Language Processing via the [NIF Extractor](https://github.com/dies-und-lenes/extraction-framework/blob/multilingual-live/core/src/main/scala/org/dbpedia/extraction/mappings/NifExtractor.scala). Requires online requests to https://en.wikipedia.org/w/api.php or a local mirror, set up with http://www.nongnu.org/wp-mirror/
+  * Will run again in Oct 2019  
+* **in development - [ontology](https://databus.dbpedia.org/dbpedia/ontology)** Provides version snapshots of the DBpedia Ontology from the [Mappings Wiki](http://mappings.dbpedia.org), 
+  * Snapshots are currently developed by [Denis](https://databus.dbpedia.org/denis/ontology/dbo-snapshots) and will be moved soon. 
 
 
 
-DBpedia's data is published via [https://databus.dbpedia.org](https://databus.dbpedia.org)
-This page contains useful queries. 
 
 ## Databus SPARQL API
 
