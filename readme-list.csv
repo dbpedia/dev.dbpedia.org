@@ -4,6 +4,7 @@ Download DBpedia,Download Data,https://github.com/dbpedia/dev.dbpedia.org/edit/m
 Setup DBpedia SPARQL Database,Download Data,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Setup_DBpedia_SPARQL_Database.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Setup_DBpedia_SPARQL_Database.md
 Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Improve_DBpedia.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
+MARVIN Release Bot,Improve DBpedia,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config/raw/master/README.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
 Databus Client,Databus,https://github.com/dbpedia/databus-client/edit/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-client/master/README.md
 Databus Derive Maven Integration,Databus,https://github.com/dbpedia/databus-derive/edit/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-derive/master/README.md
@@ -18,10 +19,10 @@ AutoIndex (Elastic Search),Applications (Self-Deploy),https://github.com/dice-gr
 DBpedia Fusion,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Fusion.md,
 ID and Clustering,DBpedia Fusion,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/ID_and_Clustering.md,
 Global IRI Resolution Service,DBpedia Fusion,https://github.com/dbpedia/dbp-same-thing-service,https://raw.githubusercontent.com/dbpedia/dbp-same-thing-service/master/README.md,
-Live Services,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Live_Services.md,
-DBpedia Live Mirroring,Live Services,https://github.com/dbpedia/dbpedia-live-mirror,https://raw.githubusercontent.com/dbpedia/dbpedia-live-mirror/master/README.md
-DBpedia Live Continuous Extraction,Live Services,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Live_Continuous_Extraction.md
+DBpedia Live,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Live_Services.md,
+DBpedia Live Mirroring,DBpedia Live,https://github.com/dbpedia/dbpedia-live-mirror,https://raw.githubusercontent.com/dbpedia/dbpedia-live-mirror/master/README.md
+DBpedia Live Continuous Extraction,DBpedia Live,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Live_Continuous_Extraction.md
 Other,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Other.md,
 DBpedia Release Diffs,Other,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Release_Diffs.md
 Infobox Provenance Tracking,Other,https://github.com/AKSW/InfoboxProvenanceTracking,https://raw.githubusercontent.com/AKSW/InfoboxProvenanceTracking/master/README.md
-WebID,,https://github.com/dbpedia/webid,https://raw.githubusercontent.com/dbpedia/webid/master/README.md
+WebID,Other,https://github.com/dbpedia/webid,https://raw.githubusercontent.com/dbpedia/webid/master/README.md
