@@ -3,7 +3,7 @@
 DBpedia Databus is currently in Public Beta during 2019 until early 2020. We describe how to query it on this page. The Databus website offers more user-friendly choices, such as collections and query builders. 
 
 All databus SPARQL queries can be used ...
-* directly
+* directly via HTTP GET (and POST for longer queries)
 * with the [Databus-Client](http://dev.dbpedia.org/Databus_Client)
 * to [setup your own SPARQL Database with Docker](http://dev.dbpedia.org/Setup_DBpedia_SPARQL_Database) 
 * future applications and dockers building on the databus
