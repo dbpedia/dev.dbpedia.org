@@ -4,7 +4,18 @@ title: About
 permalink: /
 ---
 
-# About
+# About DBpedia
+DBpedia was established around producing a queryable knowledge graph derived from Wikipedia content that’s able to answer questions like “[What have Innsbruck and Leipzig in common? (Auer et al.,2007)](http://www.jens-lehmann.org/files/2007/wiki_extraction.pdf)” A community and consumer network quickly formed around this highly useful data, resulting in a large, well-structured, open knowledge graph that seeded the Linked Open Data Cloud -- which is the largest knowledge graph on earth. 
+Further reading can be found here:
+
+* TODO
+* TODO
+* TODO
+
+# About the DBpedia Development Wiki
+Since DBpedia's establishment in 2006, the DBpedia project, published several Terabytes of useful data. DBpedia is an open community project with contributions and extensions from thousands of developers, engineers, companies and scientists, which can proudly call themselves DBpedians for building a great, freely available knowledge graph of great quality.     
+
+
 
 We are currently working on a major renovation of DBpedia, which includes:
 * for developers: being better documented and have clear processes for contribution (this bible)
