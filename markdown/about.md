@@ -5,11 +5,11 @@ permalink: /
 ---
 
 # About DBpedia
-DBpedia was established around producing a queryable knowledge graph derived from Wikipedia content that’s able to answer questions like “[What have Innsbruck and Leipzig in common? (Auer et al.,2007)](http://www.jens-lehmann.org/files/2007/wiki_extraction.pdf)” A community and consumer network quickly formed around this highly useful data, resulting in a large, well-structured, open knowledge graph that seeded the Linked Open Data Cloud -- which is the largest knowledge graph on earth. 
+DBpedia was established around producing a queryable knowledge graph derived from Wikipedia content that’s able to answer questions like “[What have Innsbruck and Leipzig in common? (Auer et al. 2007)](http://www.jens-lehmann.org/files/2007/wiki_extraction.pdf)” A community and consumer network quickly formed around this highly useful data, resulting in a large, well-structured, open knowledge graph that seeded the Linked Open Data Cloud -- which is the largest knowledge graph on earth. 
 Further reading can be found here:
 
-* [DBpedia About] (https://wiki.dbpedia.org/about)
-* [Learn about DBpedia] (https://wiki.dbpedia.org/learn-about-dbpedia)
+* [DBpedia About](https://wiki.dbpedia.org/about)
+* [Learn about DBpedia](https://wiki.dbpedia.org/learn-about-dbpedia)
 
 # About the DBpedia Development Wiki
 Since DBpedia's establishment in 2006, the DBpedia project, published several Terabytes of useful data. DBpedia is an open community project with contributions and extensions from thousands of developers, engineers, companies and scientists, which can proudly call themselves DBpedians for building a great, freely available knowledge graph of steadily improving quality.     
@@ -22,22 +22,10 @@ It is reserved for technical things. Other places with useful information (not d
 * the main website [dbpedia.org](http://dbpedia.org/) as an entry point for project presentation and first time users.  
 * Documentation of the data itself is kept in the [Databus Artifacts and Versions](https://databus.dbpedia.org/dbpedia)
 
+## Editing this wiki
+In order not to duplicate content in the many community projects, we are transcluding markdown files from the web (mostly GitHub). 
 
-
-## Purpose of the DBpedia Development Wiki
-
-DBpedia is the construct of hundreds of very skilled knowledge engineers that work in different areas. DBpedia was established in 2006 and back then we were a very small group that could communicate easily.
-Now there are hundreds of extensions of the DBpedia data and infrastructure and a lot more developers.
-Communication has become very fragmented and in order to alleviate this problem the wiki was created.
-1. The purpose is therefore to collect all technical relevant information to use the data, tools and services of DBpedia and serve as a user and development guide.
-2. The Wiki should be used to simplify community contributions to the core assets of DBpedia, such as the extraction framework, the releases, DBpedia Spotlight, Lookup by explaining the contribution processes.
-
-
-
-## Contributing to this Wiki
-
-There are two modes to contribute:
-* write something and commit it at <a target="_blank" href="https://github.com/dbpedia/dev.dbpedia.org">https://github.com/dbpedia/dev.dbpedia.org</a>
-* update the README.md of your project and include it in the readme-list.csv, as is done with <a href="WebID">WebID</a> or <a href="Databus%20Maven%20Plugin">Databus Maven Plugin</a>
-
+* on top of each page, you can find a markdown link where to edit. 
+* Some of the markdown files like this about page are in https://github.com/dbpedia/dev.dbpedia.org/tree/master/markdown others are in the respective projects. 
+* In [readme-list.csv](https://github.com/dbpedia/dev.dbpedia.org/blob/master/readme-list.csv) the order of (sub-)sections is defined.  
 
