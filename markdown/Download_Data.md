@@ -74,39 +74,39 @@ DBpedia Download Server example (Apache2 web server)
 The Databus uses the SPARQL database as backend. What you see on each page is loaded in the database. Additionally we cache FOAF/WebID profiles and RDF-Turtle files from https://github.com/dbpedia/databus-content as well as [Databus_Mods](Databus_Mods) data. 
 
 Here is an example how Mods are included in the website:
-```
+
+```sql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
-PREFIX dataiddebug: <http://dataid.dbpedia.org/ns/debug.ttl#>
 PREFIX dcat:   <http://www.w3.org/ns/dcat#>
 
 # query all files and their mod results
 # group_concat see: https://stackoverflow.com/questions/18212697/aggregating-results-from-sparql-query
-SELECT ?file (group_concat(?result;separator=" ") as ?results)  WHERE {
+SELECT ?fileId (group_concat(?result;separator=" ") as ?results)  WHERE {
   ?dataset dataid:version <https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals/2018.12.01> .
-  ?singlefile dataid:isDistributionOf ?dataset .
-  ?singlefile dataid:file ?file .
-  
-  #?property rdfs:subPropertyOf prov:wasDerivedFrom . 
-  #?result ?property ?file .
-  ?resultsvg <http://dataid.dbpedia.org/ns/mod.ttl#svgDerivedFrom> ?file .
-  # UPDATE statistics -> htmlDerivedFrom
-  ?resultstat <http://dataid.dbpedia.org/ns/mod.ttl#htmlDerivedFrom> ?file .
-  # from the same activity on the same file
+  ?file dataid:isDistributionOf ?dataset .
+  ?file dataid:file ?fileId .
+  # mods are prov:Activity
+  # identify the activity on the same file
   ?activity prov:generated ?resultsvg .
   ?activity prov:generated ?resultstat .
-  ?activity prov:used ?file .
-  
+  ?activity prov:used ?fileId .
+  ?resultsvg <http://dataid.dbpedia.org/ns/mod.ttl#svgDerivedFrom> ?fileId .
+  ?resultstat <http://dataid.dbpedia.org/ns/mod.ttl#htmlDerivedFrom> ?fileId .
   # transform to image link
   # <img src="smiley.gif" alt="Smiley face" height="42" width="42"> 
   BIND (concat("<a href=\"",?resultstat, "\"> <img src=\"",?resultsvg,"\"></a>" ) AS ?result )
-  # optionally getting label of the mod
-  # ?activity prov:generated ?result .
-  # ?activity a ?mod .
-     
+  
+  # optionally getting class of the mod
+  # ?activity a ?modclass .
+  # and the main statsummaries
+  # e.g. weekly online rate
+  # ?activity ?property ?statSummary .
+  # ?summary rdfs:subPropertyOf mod:statSummary
+  
 } 
-Group by ?file
+Group by ?fileId
 ```
 
 ### Weekly Databus dumps 
