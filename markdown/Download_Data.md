@@ -6,7 +6,7 @@ All databus SPARQL queries can be used ...
 * directly via HTTP GET (and POST for longer queries)
 * with the [Databus-Client](http://dev.dbpedia.org/Databus_Client)
 * to [setup your own SPARQL Database with Docker](http://dev.dbpedia.org/Setup_DBpedia_SPARQL_Database) 
-* future applications and dockers building on the databus
+* with future applications and dockers building on the databus
 
 ## Databus SPARQL API 
 
@@ -114,7 +114,7 @@ Group by ?fileId
 
 Query latest version:
 
-```
+```sql
 PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX dcat:  <http://www.w3.org/ns/dcat#>
