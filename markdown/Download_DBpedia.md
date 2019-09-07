@@ -23,7 +23,7 @@ Databus Pattern: `https://databus.dbpedia.org/dbpedia/$group`
 * **[mappings](https://databus.dbpedia.org/dbpedia/mappings)** - avalailable for ~40 languages. The [InfoboxMappingsExtractor](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/scala/org/dbpedia/extraction/mappings/InfoboxMappingsExtractor.scala) can be configured and optimized with easier to write rules called mappings, edited in the Mappings Wiki. This module produces  triples with `http://dbpedia.org/ontology/` predicates. They have a higher quality, but are fewer. They are an improved complement of the `generic` module. Also ontology types using `rdf:type` are in this module. 
 * **[wikidata](https://databus.dbpedia.org/dbpedia/wikidata)** - applies a set of extractors and mappings on the [Wikidata XML dumps](https://dumps.wikimedia.org/wikidatawiki/) to make Wikidata compatible with `generic` and `mappings`. Uses `http://wikidata.dbpedia.org/resource/Q[0-9+]` as subject. Also has configurable Mappings Extractor to map `P[0-9]+` to `http://dbpedia.org/ontology` and other standard vocabularies. 
 
-```sparql
+```sql
 PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX dcat:  <http://www.w3.org/ns/dcat#>
