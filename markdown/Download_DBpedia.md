@@ -1,6 +1,6 @@
 # Download the DBpedia Knowledge Graph  
 
-This is a technical documentation on how to customize SPARQL queries over the Databus SPARQL API, so you can query exactly the download links that you need. Other usefull pages:
+This is a technical documentation on how to customize SPARQL queries over the Databus SPARQL API, so you can query exactly the download links that you need. Other useful pages:
 
 * General information about [querying download links from the bus](http://dev.dbpedia.org/Download_Data) (Required reading).
 * For non-technical users the Databus pages serve as landing pages to show documentation and browser-clickable download links as well as create collections including a SPARQL query generator. TODO: create a non-technical page at [https://wiki.dbpedia.org/Datasets](https://wiki.dbpedia.org/Datasets) 
@@ -58,40 +58,6 @@ SELECT DISTINCT ?file ?shasum WHERE {
 ## Community Extensions
 
 
-
-
-## Databus SPARQL API
-
-The recommended way to access the files will be via our new Databus SPARQL API, which enables users to define clear data dependencies for their applications. 
-Features:
-
-* Create collections using the shopping cart feature and get the query
-* Retrieve the download URLs of the files to download
-* Select a suitable application to consume the files (there is a Virtuoso Docker example at the bottom of thispage) 
-
-The endpoint is reachable under:
-
-* https://databus.dbpedia.org/repo/sparql 
-* https://databus.dbpedia.org/yasgui/ (still buggy after a while, reset with https://databus.dbpedia.org/yasgui/?_resetYasgui )
-
-## Example Application Virtuoso Docker
-
-1. Download the [Dockerfile](https://github.com/dbpedia/dev.dbpedia.org/raw/master/pics/Dockerfile.dockerfile)
-2. Build `docker build -t databus-dump-triplestore .`
-3. Load any Databus `?file` query:
-```
-docker run -p 8890:8890 databus-dump-triplestore $(cat file-with-query.sparql)
-```
-
-### Collections and the shopping cart feature
-We are working on the collections. The basic idea is to browse over datasets and press "Add to collection". 
-Here are known issues:
-
-* you have to press the "add to collection" button twice the first time (session initiation)
-* you can not persist the query, it is lost with the session, we are working on the "save"
-* copy to clipboard works, so you can browse each dataset and then collect what you need and then export it.  
-
-The collection queries are  `{query1} UNION {query2}` using `?file`
 
 
 ### Query for download URL of English labels, version 2018.12.14 from generic
