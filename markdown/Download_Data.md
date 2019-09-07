@@ -33,19 +33,21 @@ PREFIX dataid-cv: <http://dataid.dbpedia.org/ns/cv#>
 PREFIX dataid-mt: <http://dataid.dbpedia.org/ns/mt#>
 ```
 
-## Query downloadURLs of all available files, all versions
+## Query all downloadURLs
 
 ```sql
+#dcat:downloadURL of all available files, all versions
 PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
 PREFIX dcat:   <http://www.w3.org/ns/dcat#>
-SELECT ?downloadURL, ?dataset, ?stableVersionID, ?stableFileID, ?localpath WHERE {
+SELECT ?downloadURL, ?stableFileId, ?dataset, ?stableVersionId, ?localpath, ?shasum   WHERE {
   # ?dataset URI points to the remote dataid.ttl file
   ?dataset a dataid:Dataset. 
   ?dataset dcat:distribution/dcat:downloadURL ?downloadURL . 
-  ?dataset dcat:distribution/dataid:file ?stableFileID .
-  ?dataset dataid:version ?stableVersionID
+  ?dataset dcat:distribution/dataid:file ?stableFileId .
+  ?dataset dcat:distribution/dataid:sha256sum ?shasum .
+  ?dataset dataid:version ?stableVersionId .
   # when downloading use this ?localpath to solve conflicting file names
-  BIND (replace(str(?stableVersionID), "https://databus.dbpedia.org/" , "") AS ?localpath)
+  BIND (replace(str(?stableVersionId), "https://databus.dbpedia.org/" , "") AS ?localpath)
 } 
 LIMIT 10000
 OFFSET 0
@@ -114,18 +116,20 @@ Excerpt from [dataid.ttl of DBpedia/mappings/instance-types/2019.08.30](http://d
         a                            dataid:SingleFile ;
         dataid:file                  <https://databus.dbpedia.org/dbpedia/mappings/instance-types/2019.08.30/instance-types_lang=fr_transitive.ttl.bz2> ;
         dcat:downloadURL             <https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/instance-types_lang=fr_transitive.ttl.bz2> ;
+        dataid:sha256sum             "fddd665c18c49862a778362763b8151702bae32ce6f9a1ba3722a076da206cb4" ;
+        dataid:signature             "QfxGaPzwrzgkIRhZb6YGbkYW5OE1WE0WKXqM2FlifXeTANR7458NQL2erl14eeHUvdHv/0OvF5ZZfegoqM49ovoKpLqhngJNqwdBBk1QzjkDZDuAqZGDbsrQdatBDfhZBhYInTthqSwFhX6sFdnTYM6AQtmgjSrj5duFqm4im1TxJ4fluX2SGnKVzcI/XBBAaBhskXxA+WoGcv07U4uIm6T0kdSa73VDK2WNrL9GQpd5MWWKdnTajbDO/v8QAe2Y0X3Pf/oN2+t+U6W9p5Zug7z2akXANjl4urRk4A84pKNpu0uyLE9ER6OhuCRUF28Lh/aIaHhzc8y61E+okfs55w==" ;
+        dataid:preview               "" ;
         
         
         dataid:associatedAgent       <https://webid.dbpedia.org/webid.ttl#this> ;
+        dataid:isDistributionOf      <https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl#Dataset> ;
+        
+        
         dataid:compression           "bzip2" ;
         dataid:contentVariant        "transitive" , "fr" ;
         dataid:duplicates            "0"^^xsd:decimal ;
         dataid:formatExtension       "ttl" ;
-        dataid:isDistributionOf      <https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl#Dataset> ;
         dataid:nonEmptyLines         "6029295"^^xsd:decimal ;
-        dataid:preview               "" ;
-        dataid:sha256sum             "fddd665c18c49862a778362763b8151702bae32ce6f9a1ba3722a076da206cb4" ;
-        dataid:signature             "QfxGaPzwrzgkIRhZb6YGbkYW5OE1WE0WKXqM2FlifXeTANR7458NQL2erl14eeHUvdHv/0OvF5ZZfegoqM49ovoKpLqhngJNqwdBBk1QzjkDZDuAqZGDbsrQdatBDfhZBhYInTthqSwFhX6sFdnTYM6AQtmgjSrj5duFqm4im1TxJ4fluX2SGnKVzcI/XBBAaBhskXxA+WoGcv07U4uIm6T0kdSa73VDK2WNrL9GQpd5MWWKdnTajbDO/v8QAe2Y0X3Pf/oN2+t+U6W9p5Zug7z2akXANjl4urRk4A84pKNpu0uyLE9ER6OhuCRUF28Lh/aIaHhzc8y61E+okfs55w==" ;
         dataid:sorted                false ;
         dataid:uncompressedByteSize  "888130202"^^xsd:decimal ;
         dataid-cv:lang               "fr" ;
