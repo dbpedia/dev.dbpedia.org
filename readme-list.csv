@@ -1,9 +1,14 @@
 Title of page,Parent page,Link to Github repository,Raw link to markdownfile
-Data,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
-Mappings,Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
+Download Data,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
+Download DBpedia, Download Data, ,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
+Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
+Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
+Databus Client,Databus,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
+Databus Derive Maven Integration,Databus,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
+Databus Mods,Databus,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
 Databus Upload User Manual,Databus,https://github.com/dbpedia/databus-maven-plugin/wiki/User-Manual-v1.3,https://raw.githubusercontent.com/wiki/dbpedia/databus-maven-plugin/User-Manual-v1.3.md
-Databus Maven Plugin,Databus,https://github.com/dbpedia/databus-maven-plugin,https://raw.githubusercontent.com/dbpedia/databus-maven-plugin/master/README.md
+Databus Upload Client,Databus,https://github.com/dbpedia/databus-maven-plugin,https://raw.githubusercontent.com/dbpedia/databus-maven-plugin/master/README.md
 Extraction,,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
 Extraction QuickStart,Extraction,https://github.com/dbpedia/extraction-framework,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/QuickStart.md
 Mappingbased Extraction,Extraction,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappingbased%20Extraction.md
