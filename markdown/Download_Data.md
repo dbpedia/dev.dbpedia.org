@@ -22,10 +22,10 @@ All databus SPARQL queries can be used ...
 # external
 PREFIX dcat:   <http://www.w3.org/ns/dcat#>
 PREFIX dct:    <http://purl.org/dc/terms/>
-PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX prov:   <http://www.w3.org/ns/prov#>
 PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
 # DataId core
 PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
 # Databus Stable Dataset IDs
@@ -33,10 +33,11 @@ PREFIX db:     <https://databus.dbpedia.org/>
 ```
 
 **UNSTABLE vocabularies, changes after BETA below**
+
 ```
 PREFIX dataid-debug: <http://dataid.dbpedia.org/ns/debug.ttl#>
-PREFIX dataid-cv: <http://dataid.dbpedia.org/ns/cv#>
-PREFIX dataid-mt: <http://dataid.dbpedia.org/ns/mt#>
+PREFIX dataid-cv:    <http://dataid.dbpedia.org/ns/cv#>
+PREFIX dataid-mt:    <http://dataid.dbpedia.org/ns/mt#>
 ```
 
 ## Query all downloadURLs
@@ -223,7 +224,7 @@ The following file properties are under discussion:
 * Reason: duplicate information        
 
 ```     
-		dataid:associatedAgent       <https://webid.dbpedia.org/webid.ttl#this> ;
+        dataid:associatedAgent       <https://webid.dbpedia.org/webid.ttl#this> ;
         dataid:isDistributionOf      <https://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl#Dataset> ;  
 ```
 
