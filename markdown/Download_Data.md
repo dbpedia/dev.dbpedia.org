@@ -111,7 +111,7 @@ Group by ?fileId
 ```
 
 ### Weekly Databus dumps 
-[https://databus.dbpedia.org/dbpedia/databus/databus-data](https://databus.dbpedia.org/dbpedia/databus/databus-data)
+Available at: [https://databus.dbpedia.org/dbpedia/databus/databus-data](https://databus.dbpedia.org/dbpedia/databus/databus-data)
 
 Query latest version:
 
