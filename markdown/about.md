@@ -22,6 +22,9 @@ It is reserved for technical things. Other places with useful information (not d
 * the main website [dbpedia.org](http://dbpedia.org/) as an entry point for project presentation and first time users.  
 * Documentation of the data itself is kept in the [Databus Artifacts and Versions](https://databus.dbpedia.org/dbpedia)
 
+## License
+All transcluded pages are informative only. We cache them from other locations on the web. Please attribute to the orignal place as mentioned in the header. Content and code in https://github.com/dbpedia/dev.dbpedia.org is CC-BY, please attribute. 
+
 ## Editing this wiki
 In order not to duplicate content in the many community projects, we are transcluding markdown files from the web (mostly GitHub). 
 

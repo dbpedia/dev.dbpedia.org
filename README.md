@@ -1,11 +1,18 @@
-# dev.dbpedia.org
-Developer Documentation at <a href="http://dev.dbpedia.org">http://dev.dbpedia.org</a>
+# Transcluder for http://dev.dbpedia.org
+Transcludes markdown files for the developer documentation at <a href="http://dev.dbpedia.org">http://dev.dbpedia.org</a>.
 
-## Requirements
+## License
+All transcluded pages are informative only. We cache them from other locations on the web. 
+Please attribute to the orignal place as mentioned in the header.
+Content and code in https://github.com/dbpedia/dev.dbpedia.org is CC-BY, please attribute. 
+
+## Installation 
+
+### Requirements
 ```
 apt-get install jekyll curl crontab
 ```
-## Installation 
+### Run
 ```
 git clone https://github.com/dbpedia/dev.dbpedia.org.git
 cd dev.dbpedia.org && ./generate-markdown.sh
@@ -13,12 +20,10 @@ cd dev.dbpedia.org && ./generate-markdown.sh
 # -H 0.0.0.0 for external access 
 jekyll serve -H 0.0.0.0 -P 4444
 ```
-
 It is also possible to serve only the generated `_site/` folder as html.
 
 ### Content
-To generate a new page, the `readme-list.csv` contains entries with the attributes: "headline", link to the "external repo", the "direct link to the external markdown file", and if it should be a subsection of a "parent menu entry".
-
+To generate a new page, the `readme-list.csv` contains entries with the attributes: "headline", subsection of a "parent menu entry", edit link to the "external repo", the "direct link to the external markdown file" (which is transcluded).
 To add static content add/edit files in the `markdown` folder and then include it as the same way as the external markdowns in the `readme-list.tsv`.
 
 
@@ -42,7 +47,7 @@ echo "*/10 * * * * /bin/sh -c 'cd `pwd` && /usr/bin/git pull -q origin master &&
 crontab tmpcron && rm tmpcron
 ```
 
-## Docker w/o cronjob
+### Docker w/o cronjob
 Docker can be used to deploy the jekyll webserver.
 `Beware` it does not support cronjobs for now.
 
