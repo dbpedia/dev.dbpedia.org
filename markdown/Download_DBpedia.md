@@ -17,7 +17,9 @@ This is a technical documentation on how to customize SPARQL queries over the Da
 * The data is split into different groups or modules according to their dependencies
 
 ## Core Groups
-Databus Pattern: `https://databus.dbpedia.org/dbpedia/$group`
+Databus URI Pattern: `https://databus.dbpedia.org/dbpedia/$group`
+
+SPARQL `?dataset dataid:group <https://databus.dbpedia.org/dbpedia/wikidata> .`
 
 * **[generic](https://databus.dbpedia.org/dbpedia/generic)** - available for ~140 languages, based on the [pages-articles-multistream Wikimedia dumps](https://dumps.wikimedia.org/), uses [the automatic extractors written in scala](https://github.com/dbpedia/extraction-framework/tree/master/core/src/main/scala/org/dbpedia/extraction/mappings) on the Wiki syntax and produces predicates of the form `http://dbpedia.org/property` or `http://$lang.dbpedia.org/property` as well as other standard vocabularies, such as `foaf`, `rdfs:label`, `skos`, `wgs84` . They have the broadest coverage and decent quality. 
 * **[mappings](https://databus.dbpedia.org/dbpedia/mappings)** - avalailable for ~40 languages. The [InfoboxMappingsExtractor](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/scala/org/dbpedia/extraction/mappings/InfoboxMappingsExtractor.scala) can be configured and optimized with easier to write rules called mappings, edited in the Mappings Wiki. This module produces  triples with `http://dbpedia.org/ontology/` predicates. They have a higher quality, but are fewer. They are an improved complement of the `generic` module. Also ontology types using `rdf:type` are in this module. 

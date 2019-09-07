@@ -1,10 +1,74 @@
 # Download Data from the DBpedia Databus
 
+Databus is currently in Public Beta during 2019, beginning 2020
 
+## Databus SPARQL API 
+
+* URL: `https://databus.dbpedia.org/repo/sparql`
+* Follows the SPARQL 1.1 [Protocol](https://www.w3.org/TR/sparql11-protocol/) and [Query Language](https://www.w3.org/TR/sparql11-query/), Virtuoso version 07.20.3217 
+* [YASGUI](https://databus.dbpedia.org/yasgui/) - Yet Another SPARQL GUI
+* [Virtuoso SPARQL Editor](https://databus.dbpedia.org/repo/sparql)
+* [Faceted Search & Find service](https://databus.dbpedia.org/fct/) - some configuration issues exist, will be fixed during next maintenance
+
+**stable vocabluaries**
+
+```
+# external
+PREFIX dct:    <http://purl.org/dc/terms/>
+PREFIX dcat:   <http://www.w3.org/ns/dcat#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+# DataID core
+PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
+# Databus Stable Dataset IDs
+PREFIX db:     <https://databus.dbpedia.org/>
+```
+
+**UNSTABLE vocabularies, changes after BETA below**
+```
+PREFIX dataid-debug: <http://dataid.dbpedia.org/ns/debug.ttl#>
+PREFIX dataid-cv: <http://dataid.dbpedia.org/ns/cv#>
+PREFIX dataid-mt: <http://dataid.dbpedia.org/ns/mt#>
+```
+
+## Query downloadURLs of all available files, all versions
+
+```sql
+PREFIX dataid: <http://dataid.dbpedia.org/ns/core#>
+PREFIX dcat:   <http://www.w3.org/ns/dcat#>
+SELECT ?downloadURL, ?dataset, ?stableVersionID, ?stableFileID, ?localpath WHERE {
+  # ?dataset URI points to the remote dataid.ttl file
+  ?dataset a dataid:Dataset. 
+  ?dataset dcat:distribution/dcat:downloadURL ?downloadURL . 
+  ?dataset dcat:distribution/dataid:file ?stableFileID .
+  ?dataset dataid:version ?stableVersionID
+  # when downloading use this ?localpath to solve conflicting file names
+  BIND (replace(str(?stableVersionID), "https://databus.dbpedia.org/" , "") AS ?localpath)
+} 
+LIMIT 10000
+OFFSET 0
+```
+
+## Content of the SPARQL Database
+
+DBpedia Databus does not host the files itself, these are hosted on the servers (i.e. storage) of its users. Databus Consumers upload their files on their own server in a folder structure mirroring the Databus URIs. Next to their files, they generate a `dataid.ttl` file in RDF-Turtle containing the metadata. We provide an [Upload Client](Databus_Upload_User_Manual) that generates the file and does a `POST` request. 
+ 
+### DBpedia Example with Apache2 Web Server:
+* DataID URL (this is loaded in the SPARQL API): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl
+* Databus URL (displays the information from dataid.ttl): https://databus.dbpedia.org/dbpedia/mappings/instance-types/2019.08.30
+* Apache2 web dir (downloadURLPath): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/
+* Apache2 local directory (package): `/media/bigone/25TB/www/downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/`
+
+
+
+## Planned vocabulary changes after beta
+
+
+
+######################################################
 DBpedia's data is published via [https://databus.dbpedia.org](https://databus.dbpedia.org)
 This page contains useful queries. 
 
-## Notice on planned vocabulary changes after beta
 
 
 
