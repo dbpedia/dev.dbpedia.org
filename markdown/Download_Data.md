@@ -1,6 +1,6 @@
-# Download Data from the DBpedia Databus
+# Download Data
 
-Databus is currently in Public Beta during 2019, beginning 2020
+DBpedia Databus is currently in Public Beta during 2019 until early 2020
 
 ## Databus SPARQL API 
 
@@ -53,20 +53,19 @@ LIMIT 10000
 OFFSET 0
 ```
 
-## Content of the SPARQL Database
+## Database Content
 
 DBpedia Databus does not host the files itself, these are hosted on the servers (i.e. storage) of its users. Databus Consumers upload their files on their own server in a folder structure mirroring the Databus URIs. Next to their files, they generate a `dataid.ttl` file in RDF-Turtle containing the metadata. We provide an [Upload Client](Databus_Upload_User_Manual) that generates the file and does a `POST` request. 
  
-### DBpedia Download Server example (Apache2 web server)
+DBpedia Download Server example (Apache2 web server)
 
 * DataId URL (this is loaded into the SPARQL API): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl
 * Databus URL (displays the information from dataid.ttl): https://databus.dbpedia.org/dbpedia/mappings/instance-types/2019.08.30
 * Apache2 web dir (downloadURLPath): http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/
 * Apache2 local directory (package): `/media/bigone/25TB/www/downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/`
 
-### `dataid.ttl` explained
+# `dataid.ttl` explained
 Excerpt from [dataid.ttl of DBpedia/mappings/instance-types/2019.08.30](http://downloads.dbpedia.org/repo/lts/mappings/instance-types/2019.08.30/dataid.ttl). Can be directly used in SPARQL queries. 
-
 
 
 ```
