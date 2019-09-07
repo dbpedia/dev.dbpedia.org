@@ -4,6 +4,10 @@
 DBpedia's data is published via [https://databus.dbpedia.org](https://databus.dbpedia.org)
 This page contains useful queries. 
 
+## Notice on planned vocabulary changes after beta
+
+
+
 ## Databus SPARQL API
 
 The recommended way to access the files will be via our new Databus SPARQL API, which enables users to define clear data dependencies for their applications. 
