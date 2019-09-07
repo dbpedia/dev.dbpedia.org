@@ -1,4 +1,5 @@
-# Download Data 
+# Download Data from the DBpedia Databus
+
 
 DBpedia's data is published via [https://databus.dbpedia.org](https://databus.dbpedia.org)
 This page contains useful queries. 

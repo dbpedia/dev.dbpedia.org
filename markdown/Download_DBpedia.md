@@ -1,4 +1,18 @@
-# Data 
+# Download the DBpedia Knowledge Graph  
+
+This is a technical documentation on how to customize SPARQL queries over the Databus SPARQL API, so you can query exactly the download links that you need. Other usefull pages:
+
+* General information about [querying download links from the bus](http://dev.dbpedia.org/Download_Data) (Required reading).
+* For non-technical users we keep a generated list of browser-clickable download links on https://wiki.dbpedia.org/Datasets
+* The queries that are documented here can be used with the [Databus-Client](http://dev.dbpedia.org/Databus_Client) and also to [setup your own SPARQL Database with Docker](http://dev.dbpedia.org/Setup_DBpedia_SPARQL_Database) 
+
+## Overview
+
+* DBpedia extracts information from Wikipedia, Wikidata, Commons and other projects
+* The extraction runs monthly around the 7th, for details see the [Improve DBpedia section](http://dev.dbpedia.org/Improve_DBpedia) 
+* You can also read the documentation and create custom SPARQL queries at individual datasets at the [Databus DBpedia Account](https://databus.dbpedia.org/dbpedia)
+
+
 
 DBpedia's data is published via [https://databus.dbpedia.org](https://databus.dbpedia.org)
 This page contains useful queries. 
