@@ -1,3 +1,5 @@
 /.idea/
 /_site/
 /content/
+*.sh.swp
+*.sh.save

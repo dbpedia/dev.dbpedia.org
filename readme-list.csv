@@ -1,8 +1,8 @@
 Title of page,Parent page,Link to Github repository,Raw link to markdownfile
-Download Data,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
-Download DBpedia,Download Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
-Replicate SPARQL Endpoint,Download Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
-Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Data.md
+Download Data,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_Data.md
+Download DBpedia,Download Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_DBpedia.md
+Set Up Own DBpedia SPARQL Endpoint,Download Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_SPARQL.md
+Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Improve_DBpedia.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
 Databus Client,Databus,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
