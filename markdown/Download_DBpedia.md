@@ -6,7 +6,7 @@ This is a technical documentation on how to customize SPARQL queries over the Da
 * For non-technical users the Databus pages serve as landing pages to show documentation and browser-clickable download links as well as create collections including a SPARQL query generator. TODO: create a non-technical page at [https://wiki.dbpedia.org/Datasets](https://wiki.dbpedia.org/Datasets) 
 * The queries that are documented here can be used ...
   * with [YasGUI and Virtuoso SPARQL Editor](http://dev.dbpedia.org/Download_Data)  
-  * with the [Databus-Client](http://dev.dbpedia.org/Databus_Client) including recompression and transofrmation on download.
+  * with the [Databus-Client](http://dev.dbpedia.org/Databus_Client) including recompression and transformation on download.
   * to [setup your own SPARQL Database with Docker](http://dev.dbpedia.org/Setup_DBpedia_SPARQL_Database) 
 
 ## Overview

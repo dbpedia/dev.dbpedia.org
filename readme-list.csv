@@ -1,6 +1,6 @@
 Title of page,Parent page,Link to Github repository,Raw link to markdownfile
 Download Data,,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Download_Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_Data.md
-Download DBpedia,Download Data,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_DBpedia.md
+Download DBpedia,Download Data,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Download_DBpedia.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_DBpedia.md
 Setup DBpedia SPARQL Database,Download Data,https://github.com/dbpedia/dev.dbpedia.org/blob/master/markdown/Setup_DBpedia_SPARQL_Database.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Setup_DBpedia_SPARQL_Database.md
 Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Improve_DBpedia.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
