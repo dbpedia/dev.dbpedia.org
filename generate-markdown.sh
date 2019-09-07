@@ -23,7 +23,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 	# generating the header of each page
     if [ -n "$repourl" ]
     then
-        includetext=`echo 'This page was included from <a target="_blank" href="'$repourl'">'$repourl'</a>.'`
+        includetext=`echo '**[Edit this page]($repourl)**'`
     fi
     
 	# generate jekyll header
