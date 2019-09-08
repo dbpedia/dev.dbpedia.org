@@ -44,8 +44,16 @@ PREFIX dataid-cv:    <http://dataid.dbpedia.org/ns/cv#>
 PREFIX dataid-mt:    <http://dataid.dbpedia.org/ns/mt#>
 PREFIX mod:          <http://dataid.dbpedia.org/ns/mod.ttl#> 
 PREFIX databus-sys:  <https://databus.dbpedia.org/system/voc/> 
-
 ```
+## License URLs 
+* currently use: http://purl.oclc.org/NET/rdflicense/
+* we might switch to one of the following after they are evaluated and vetted:
+  * https://joinup.ec.europa.eu/release/dcat-ap-how-refer-licence-documents-and-licence-uris
+  * https://creativecommons.org/ns
+  * https://dalicc.net/about
+  * https://www.w3.org/ns/odrl/2/ODRL21
+  * `license.txt` file
+
 
 ## Query all downloadURLs
 
