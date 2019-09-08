@@ -1,3 +1,7 @@
+# DBpedia Live
+
+See also https://wiki.dbpedia.org/online-access/DBpediaLive/ 
+
 ## Table of Content
-* <a href="DBpedia Live Continuous Extraction.md">DBpedia Live Continuous Extraction</a>
-* <a href="DBpedia Live Mirroring.md">DBpedia Live Mirroring</a>
+* [DBpedia Live Continuous Extraction](DBpedia_Live_Continuous_Extraction)
+* [DBpedia Live Mirroring](DBpedia_Live_Mirroring)

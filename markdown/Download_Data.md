@@ -16,6 +16,7 @@ All databus SPARQL queries can be used ...
 * [YASGUI](https://databus.dbpedia.org/yasgui/) - Yet Another SPARQL GUI, reset browser cache with [https://databus.dbpedia.org/yasgui/?_resetYasgui]
 * [Virtuoso SPARQL Editor](https://databus.dbpedia.org/repo/sparql)
 * [Faceted Search & Find service](https://databus.dbpedia.org/fct/) - some configuration issues exist, will be fixed during next maintenance
+* At the end of the year, we plan a scalability update (better or more servers, some data moved to additional, external stores). During development it is running on the [smallest Hetzner server](https://www.hetzner.com/dedicated-rootserver/matrix-ex).
 
 **stable vocabularies**
 
