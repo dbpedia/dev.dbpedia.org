@@ -17,6 +17,7 @@ All databus SPARQL queries can be used ...
 * [Virtuoso SPARQL Editor](https://databus.dbpedia.org/repo/sparql)
 * [Faceted Search & Find service](https://databus.dbpedia.org/fct/) - some configuration issues exist, will be fixed during next maintenance
 * At the end of the year, we plan a scalability update (better or more servers, some data moved to additional, external stores). During development it is running on the [smallest Hetzner server](https://www.hetzner.com/dedicated-rootserver/matrix-ex).
+* Performance note: Please use aggregates (COUNT, SUM, AVG, GROUP_CONCAT) and Group By sparingly. If too many people run analytics, it impacts performance. Replicate the store with the weekly dumps locally for these.  
 
 **stable vocabularies**
 
