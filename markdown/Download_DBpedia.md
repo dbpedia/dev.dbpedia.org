@@ -2,8 +2,8 @@
 
 This is a technical documentation on how to customize SPARQL queries over the Databus SPARQL API, so you can query exactly the download links that you need. Other useful pages:
 
-* General information about [querying download links from the bus](http://dev.dbpedia.org/Download_Data) (Required reading).
-* For non-technical users the Databus pages serve as landing pages to show documentation and browser-clickable download links as well as create collections including a SPARQL query generator. TODO: create a non-technical page at [https://wiki.dbpedia.org/Datasets](https://wiki.dbpedia.org/Datasets) 
+* General information about [querying download links from the bus](http://dev.dbpedia.org/Download_Data) (**Required reading**).
+* For non-technical users the Databus pages serve as landing pages to show documentation and browser-clickable download links as well as create collections including a SPARQL query generator at the bottom of each page. Once statistics are created and releases are more complete, we will also update the  [Monthly Release](https://wiki.dbpedia.org/develop/datasets/monthly-dataset-releases) and  [Datasets](https://wiki.dbpedia.org/Datasets) pages on dbpedia.org.
 * The queries that are documented here can be used ...
   * with [YasGUI and Virtuoso SPARQL Editor](http://dev.dbpedia.org/Download_Data)  
   * with the [Databus-Client](http://dev.dbpedia.org/Databus_Client) including recompression and transformation on download.

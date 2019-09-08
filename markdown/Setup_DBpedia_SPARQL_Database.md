@@ -1,5 +1,6 @@
 # Setup a DBpedia SPARQL endpoint on your server 
 
+* Please post new Dockers in the [DBpedia Forum](https://forum.dbpedia.org)
 * TODO add a running example, e.g. loading the DBpedia ontology into Virtuoso
 * TODO Setup Docker Hub to collect more applications and describe the process of adding dockers
 * TODO Add the [DBpepdia VAD Chapter Docker](https://github.com/dbpedia/dbpedia-vad-i18n) with queries, so chapters such as de.dbpedia.org or el.dbpedia.org can autoupdate on monthly release
