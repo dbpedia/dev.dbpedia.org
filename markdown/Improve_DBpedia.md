@@ -8,6 +8,13 @@
 * Edit mappings on http://mappings.dbpedia.org, effective for the [Mappings](https://databus.dbpedia.org/dbpedia/mappings) and [Ontology](https://databus.dbpedia.org/dbpedia/ontology) groups
 * Edit [Wikidata mappings](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/resources/wikidatar2r.json), effective for the [Wikidata](https://databus.dbpedia.org/dbpedia/wikidata) group (every artifact with `mapping`)
 
+## Write tests for Minidumps
+* any errors found in the big dumps can be tested on minidumps **on-commit**
+* [extend the minidump size for specific urls](https://github.com/dbpedia/extraction-framework/tree/master/dump/src/test/bash) 
+* [add more tests](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/resources/dbpedia-specific-ci-tests.ttl) 
+  * these are also used on the EvalMod later, which produces [![Build Status](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.svg)](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.html) 
+* Later we will add [SHACL to on-commit minidump testing](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/resources/custom-shacl-tests.ttl). 
+
 ## Extend DBpedia with additional datasets
 * see [LHD](https://databus.dbpedia.org/propan/lhd/linked-hypernyms/2016.04.01)
 * see [DBkWik](https://databus.dbpedia.org/sven-h/dbkwik/dbkwik/2019.09.02)
