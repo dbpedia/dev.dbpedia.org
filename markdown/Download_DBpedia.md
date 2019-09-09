@@ -54,7 +54,7 @@ SELECT DISTINCT ?file ?shasum WHERE {
 
 ```
 
-###[mappings](https://databus.dbpedia.org/dbpedia/mappings)
+### [mappings](https://databus.dbpedia.org/dbpedia/mappings)
 * monthly, deployed 
 * avalailable for ~40 languages. The [InfoboxMappingsExtractor](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/scala/org/dbpedia/extraction/mappings/InfoboxMappingsExtractor.scala) can be configured and optimized with easier to write rules called mappings, edited in the Mappings Wiki. This module produces  triples with `http://dbpedia.org/ontology/` predicates. They have a higher quality, but are fewer. They are an improved complement of the `generic` module. Also ontology types using `rdf:type` are in this module. 
   * The mappings group is far more heterogeneous than generic or wikidata:
