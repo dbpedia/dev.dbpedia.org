@@ -21,7 +21,8 @@ This is a technical documentation on how to customize SPARQL queries over the Da
 * SPARQL `?dataset dataid:group <https://databus.dbpedia.org/dbpedia/generic> .`
 * For docu add `?dataset rdfs:comment ?comment . ?dataset dct:description ?description .` to queries.
 
-### [generic](https://databus.dbpedia.org/dbpedia/generic), monthly, deployed
+### [generic](https://databus.dbpedia.org/dbpedia/generic)
+* monthly, deployed
 * available for ~140 languages, based on the [pages-articles-multistream Wikimedia dumps](https://dumps.wikimedia.org/), uses [the automatic extractors written in scala](https://github.com/dbpedia/extraction-framework/tree/master/core/src/main/scala/org/dbpedia/extraction/mappings) on the Wiki syntax and produces predicates of the form `http://dbpedia.org/property` or `http://$lang.dbpedia.org/property` as well as other standard vocabularies, such as `foaf`, `rdfs:label`, `skos`, `wgs84` . They have the broadest coverage and decent quality. 
   * generic group has over 20 artifacts with almost 3000 per version total
   * Filter belo is set to 'English only' 
@@ -53,7 +54,8 @@ SELECT DISTINCT ?file ?shasum WHERE {
 
 ```
 
-###[mappings](https://databus.dbpedia.org/dbpedia/mappings), monthly, deployed 
+###[mappings](https://databus.dbpedia.org/dbpedia/mappings)
+* monthly, deployed 
 * avalailable for ~40 languages. The [InfoboxMappingsExtractor](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/scala/org/dbpedia/extraction/mappings/InfoboxMappingsExtractor.scala) can be configured and optimized with easier to write rules called mappings, edited in the Mappings Wiki. This module produces  triples with `http://dbpedia.org/ontology/` predicates. They have a higher quality, but are fewer. They are an improved complement of the `generic` module. Also ontology types using `rdf:type` are in this module. 
   * The mappings group is far more heterogeneous than generic or wikidata:
      * not every artifact has every language, they are quite mixed
@@ -129,7 +131,8 @@ SELECT DISTINCT ?file WHERE {
 
 ```
 
-### [wikidata](https://databus.dbpedia.org/dbpedia/wikidata), monthly, deployed
+### [wikidata](https://databus.dbpedia.org/dbpedia/wikidata)
+* monthly, deployed
 * applies a set of extractors and mappings on the [Wikidata XML dumps](https://dumps.wikimedia.org/wikidatawiki/) to make Wikidata compatible with `generic` and `mappings`. Uses `http://wikidata.dbpedia.org/resource/Q[0-9+]` as subject. Also has configurable Mappings Extractor to map `P[0-9]+` to `http://dbpedia.org/ontology` and other standard vocabularies. 
 
 ```sql
@@ -154,11 +157,13 @@ SELECT DISTINCT ?file ?shasum WHERE {
     FILTER NOT EXISTS {?distribution <http://dataid.dbpedia.org/ns/cv#tag> 'debug'^^<http://www.w3.org/2001/XMLSchema#string>} .       
 }
 ```
-### [text](https://databus.dbpedia.org/dbpedia/text), under maintenance, offline
+### [text](https://databus.dbpedia.org/dbpedia/text)
+* under maintenance, offline
 * available in 140 languages, uses the HTML queried from the Wikipedia API to extract short and long abstracts and other relevant information for Natural Language Processing via the [NIF Extractor](https://github.com/dies-und-lenes/extraction-framework/blob/multilingual-live/core/src/main/scala/org/dbpedia/extraction/mappings/NifExtractor.scala). Requires online requests to https://en.wikipedia.org/w/api.php or a local mirror, set up with http://www.nongnu.org/wp-mirror/
   * Will run Oct/Nov 2019  
   
-### [ontology](https://databus.dbpedia.org/dbpedia/ontology), in development, on ontology edit 
+### [ontology](https://databus.dbpedia.org/dbpedia/ontology)
+* in development, on ontology edit 
 * Provides version snapshots of the DBpedia Ontology downloaded from the [Mappings Wiki](http://mappings.dbpedia.org), 
   * Snapshots are currently developed by [Denis](https://databus.dbpedia.org/denis/ontology/dbo-snapshots) and will be moved soon. 
 
@@ -184,11 +189,13 @@ SELECT distinct ?file ?latestVersion ?mediatype WHERE {
 }
 ```
 
-### [transition](https://databus.dbpedia.org/dbpedia/transition), no updates, will be refactored
+### [transition](https://databus.dbpedia.org/dbpedia/transition)
+* no updates, will be refactored
 * mixed datasets from older releases, which we need to consolidate into the new structure
   * contains links to freebase and many other
 
-### [id-management](https://databus.dbpedia.org/dbpedia/id-management/) and links, in development
+### [id-management](https://databus.dbpedia.org/dbpedia/id-management/) and links
+* in development
 * ID management creates new DBpedia global ids for any accepted, external URI spaces
 * Itis  bootstrapped from interlanguage links from [wikidata/sameas-all-wikis](https://databus.dbpedia.org/dbpedia/wikidata/sameas-all-wikis) and [generic/interlanguage-links](https://databus.dbpedia.org/dbpedia/generic/interlanguage-links)
 * In the future we will add more links and IDs taken from datasets on the Databus such as [geonames](https://databus.dbpedia.org/kurzum/cleaned-data/geonames/2018.03.11) or musicbrainz
