@@ -188,7 +188,10 @@ SELECT distinct ?file ?latestVersion ?mediatype WHERE {
 * mixed datasets from older releases, which we need to consolidate into the new structure
   * contains links to freebase and many other
 
-
+### [id-management](https://databus.dbpedia.org/dbpedia/id-management/) and links, in development
+* ID management creates new DBpedia global ids for any accepted, external URI spaces
+* Itis  bootstrapped from interlanguage links from [wikidata/sameas-all-wikis](https://databus.dbpedia.org/dbpedia/wikidata/sameas-all-wikis) and [generic/interlanguage-links](https://databus.dbpedia.org/dbpedia/generic/interlanguage-links)
+* In the future we will add more links and IDs taken from datasets on the Databus such as [geonames](https://databus.dbpedia.org/kurzum/cleaned-data/geonames/2018.03.11) or musicbrainz
 
 ## Community Extensions
 Please read the docu at the databus:
