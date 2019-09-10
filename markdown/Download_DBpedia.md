@@ -92,41 +92,42 @@ PREFIX dataid-cv: <http://dataid.dbpedia.org/ns/cv#>
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX dcat:  <http://www.w3.org/ns/dcat#>
 
-
-# Get the latest of the four most popular mappings dataset, English only
+# Get the 4 most popular mappings artifact, english only
 SELECT DISTINCT ?file WHERE {
      ?dataset dcat:distribution ?distribution .
      ?dataset dct:hasVersion ?latestVersion .
+     ?distribution dcat:downloadURL ?file .
+     # english
+     ?distribution dataid:contentVariant "en"^^xsd:string .  
   	 { 
-    	?dataset dataid:artifact ?artifact .
-    	FILTER (?artifact in (
-			 <https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals>,
-             <https://databus.dbpedia.org/dbpedia/mappings/geo-coordinates-mappingbased>
-        )) .
-  	 }UNION {
-     	?dataset dataid:artifact <https://databus.dbpedia.org/dbpedia/mappings/instance-types> .
-    	# pre-calculated transitive closure overrdf:type
-    	?distribution dataid:contentVariant "transitive"^^xsd:string .
+    	    ?dataset dataid:artifact ?artifact .
+    	    FILTER (?artifact in (
+         		<https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals>,
+                <https://databus.dbpedia.org/dbpedia/mappings/geo-coordinates-mappingbased>
+            )) .
+  	 } UNION {
+     	    ?dataset dataid:artifact <https://databus.dbpedia.org/dbpedia/mappings/instance-types> .
+    	    # pre-calculated transitive closure overrdf:type
+    	    ?distribution dataid:contentVariant "transitive"^^xsd:string .
      } UNION {
-     	?dataset dataid:artifact <https://databus.dbpedia.org/dbpedia/mappings/mappingbased-objects> .
-        # removes debugging info about disjoint domain and ranges
-    	FILTER NOT EXISTS {?distribution dataid-cv:tag ?tag . }
+     	    ?dataset dataid:artifact <https://databus.dbpedia.org/dbpedia/mappings/mappingbased-objects> .
+            ?dataset dcat:distribution ?distribution .
+            # removes debugging info about disjoint domain and ranges
+    	    FILTER NOT EXISTS {?distribution dataid-cv:tag ?tag . }
      }
-  		?distribution dcat:downloadURL ?file .
-        # english
-     	?distribution dataid:contentVariant "en"^^xsd:string .             
+  	               
     {
-        SELECT (max(?version) as ?latestVersion) WHERE {
-            ?dataset dataid:artifact ?artifact .
-    		 FILTER (?artifact in (
-             <https://databus.dbpedia.org/dbpedia/mappings/instance-types>,
-             <https://databus.dbpedia.org/dbpedia/mappings/mappingbased-objects>,
-			 <https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals>,
-             <https://databus.dbpedia.org/dbpedia/mappings/geo-coordinates-mappingbased>
-             )) .
-            ?dataset dct:hasVersion ?version .
-        }
-    }
+	SELECT (max(?version) as ?latestVersion) WHERE {
+		?dataset dataid:artifact ?artifact .
+		?dataset dct:hasVersion ?version .
+		FILTER (?artifact in (
+		 <https://databus.dbpedia.org/dbpedia/mappings/instance-types>,
+		 <https://databus.dbpedia.org/dbpedia/mappings/mappingbased-objects>,
+	     <https://databus.dbpedia.org/dbpedia/mappings/mappingbased-literals>,
+		 <https://databus.dbpedia.org/dbpedia/mappings/geo-coordinates-mappingbased>
+		 )) .
+		 }
+   }
 }
 
 ```
@@ -198,7 +199,7 @@ SELECT distinct ?file ?latestVersion ?mediatype WHERE {
 * in development
 * ID management creates new DBpedia global ids for any accepted, external URI spaces
 * Itis  bootstrapped from interlanguage links from [wikidata/sameas-all-wikis](https://databus.dbpedia.org/dbpedia/wikidata/sameas-all-wikis) and [generic/interlanguage-links](https://databus.dbpedia.org/dbpedia/generic/interlanguage-links)
-* In the future we will add more links and IDs taken from datasets on the Databus such as [geonames](https://databus.dbpedia.org/kurzum/cleaned-data/geonames/2018.03.11) or musicbrainz
+* In the future, we will add more links and IDs taken from datasets on the Databus such as [geonames](https://databus.dbpedia.org/kurzum/cleaned-data/geonames/2018.03.11) or musicbrainz
 
 ## Community Extensions
 Please read the docu at the databus:
