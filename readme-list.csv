@@ -5,6 +5,7 @@ Setup DBpedia SPARQL Database,Download Data,https://github.com/dbpedia/dev.dbped
 Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Improve_DBpedia.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
 MARVIN Release Bot,Improve DBpedia,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config/raw/master/README.md
+Query DBpedia,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Query_DBpedia.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Query_DBpedia.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
 Databus Client,Databus,https://github.com/dbpedia/databus-client/edit/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-client/master/README.md
 Databus Derive Maven Integration,Databus,https://github.com/dbpedia/databus-derive/edit/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-derive/master/README.md
