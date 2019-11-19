@@ -3,7 +3,7 @@ Download Data,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/D
 Download DBpedia,Download Data,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Download_DBpedia.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Download_DBpedia.md
 Setup DBpedia SPARQL Database,Download Data,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Setup_DBpedia_SPARQL_Database.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Setup_DBpedia_SPARQL_Database.md
 Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Improve_DBpedia.md
-Debugging DIEF,Improve DBpedia,,https://github.com/dbpedia/extraction-framework/blob/master/DEBUG.md
+Debugging DIEF,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/DEBUG.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
 MARVIN Release Bot,Improve DBpedia,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config/raw/master/README.md
 Query DBpedia,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Query_DBpedia.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Query_DBpedia.md
