@@ -16,6 +16,7 @@ Databus Upload Client,Databus,https://github.com/dbpedia/databus-maven-plugin,ht
 Extraction,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
 Extraction QuickStart,Extraction,https://github.com/dbpedia/extraction-framework/blob/master/QuickStart.md,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/QuickStart.md
 Mappingbased Extraction,Extraction,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappingbased_Extraction.md
+Post-Processing,Extraction,https://github.com/dbpedia/extraction-framework/blob/master/POSTPROCESSING.md,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/POSTPROCESSING.md
 Applications (Self-Deploy),,,
 AutoIndex (Elastic Search),Applications (Self-Deploy),https://github.com/dice-group/autoindex,https://raw.githubusercontent.com/dice-group/autoindex/master/README.md
 DBpedia Fusion,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Fusion.md,
