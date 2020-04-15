@@ -1,12 +1,12 @@
 # Improve DBpedia 
 
-* TODO just started this page. Many things missing.  
-* Please post ideas in the [DBpedia Forum](https://forum.dbpedia.org) and help us migrate ideas and approaches into this wiki. 
+There are many ways to contribute and help improve DBpedia. Below you can find general ideas for contribution. In addition, feel free to post ideas in the [DBpedia Forum](https://forum.dbpedia.org) and help us migrate ideas and approaches into this wiki. 
 
 ## Fix monthly releases
 * Patches to the extraction framework will be effective on the next run of [MARVIN Release Bot](http://dev.dbpedia.org/MARVIN_Release_Bot)
 * Edit mappings on http://mappings.dbpedia.org, effective for the [Mappings](https://databus.dbpedia.org/dbpedia/mappings) and [Ontology](https://databus.dbpedia.org/dbpedia/ontology) groups
 * Edit [Wikidata mappings](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/resources/wikidatar2r.json), effective for the [Wikidata](https://databus.dbpedia.org/dbpedia/wikidata) group (every artifact with `mapping`)
+* Improve the configuration for your language
 
 ## Write tests for Minidumps
 * any errors found in the big dumps can be tested on minidumps **on-commit**
