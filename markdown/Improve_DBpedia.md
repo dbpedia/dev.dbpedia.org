@@ -1,27 +1,48 @@
 # Improve DBpedia 
 
-There are many ways to contribute and help improve DBpedia. Below you can find general ideas for contribution. In addition, feel free to post ideas in the [DBpedia Forum](https://forum.dbpedia.org) and help us migrate ideas and approaches into this wiki. 
+# Improve DBpedia 
+
+There are many ways to contribute and help improve DBpedia. Below you can find general ideas for contribution. In addition, feel free to post and ideas for improvement of DBpedia in the [DBpedia Forum](https://forum.dbpedia.org) and help us migrate ideas and approaches into this wiki.
 
 ## Fix monthly releases
-* Patches to the extraction framework will be effective on the next run of [MARVIN Release Bot](http://dev.dbpedia.org/MARVIN_Release_Bot)
-* Edit mappings on http://mappings.dbpedia.org, effective for the [Mappings](https://databus.dbpedia.org/dbpedia/mappings) and [Ontology](https://databus.dbpedia.org/dbpedia/ontology) groups
-* Edit [Wikidata mappings](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/resources/wikidatar2r.json), effective for the [Wikidata](https://databus.dbpedia.org/dbpedia/wikidata) group (every artifact with `mapping`)
+
+You can improve the monthly releases in several ways:
+
+* Providing patches to the extraction framework. The changes will be effective on the next run of [MARVIN Release Bot](http://dev.dbpedia.org/MARVIN_Release_Bot). Feel free to make a pull request!
+* Improve the mappings at [http://mappings.dbpedia.org](http://mappings.dbpedia.org). Any change made on the mappings will be reflected in the data behind [Mappings](https://databus.dbpedia.org/dbpedia/mappings) and [Ontology](https://databus.dbpedia.org/dbpedia/ontology) data groups.
+* Improve [Wikidata mappings](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/resources/wikidatar2r.json). This improvements will be reflected on the [Wikidata](https://databus.dbpedia.org/dbpedia/wikidata) data group (every artifact with `mapping`)
 * Improve the configuration for your language
 
-## Write tests for Minidumps
-* any errors found in the big dumps can be tested on minidumps **on-commit**
-* [extend the minidump size for specific urls](https://github.com/dbpedia/extraction-framework/tree/master/dump/src/test/bash) 
-* [add more tests](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/resources/dbpedia-specific-ci-tests.ttl) 
-  * these are also used on the EvalMod later, which produces [![Build Status](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.svg)](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.html) 
-* Later we will add [SHACL to on-commit minidump testing](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/resources/custom-shacl-tests.ttl). 
+> TODO: add page which explains how to configure the extraction
 
-## Extend DBpedia with additional datasets
-* see [LHD](https://databus.dbpedia.org/propan/lhd/linked-hypernyms/2016.04.01)
-* see [DBkWik](https://databus.dbpedia.org/sven-h/dbkwik/dbkwik/2019.09.02)
+## Write tests for Minidumps
+
+*Minidumps* are small Wikipedia XML dumps which are used to test the extraction framework.
+Any errors found in the big dumps can be tested on minidumps **on-commit**.
+Defined tests are executed to test the extraction against the minidumps.
+
+Here are several options on how you can improve the testing:
+
+* Extend the minidump size with [language specific URLs](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/bash/uris.lst).
+* Create more [SHACL tests](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/resources/custom-shacl-tests.ttl) for on-commit minidump testing. 
+* Create more [DBpedia Specific tests](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/resources/dbpedia-specific-ci-tests.ttl). These test are also used in the EvalMod later, which generates [test reports](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.html). [![Build Status](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.svg)](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.html) 
+
+Learn more on how to [Testing on Minidumps works](http://dev.dbpedia.org/Testing_on_Minidumps).
+
+## Contribute additional datasets
+
+We are open for data contributions from the community.
+Feel free to contribute and publish your data on the DBpedia Databus using the [Databus Maven Plugin](http://dev.dbpedia.org/Databus_Upload_Client).
+
+Many datasets have been already contributed by the community. Here are few examples:
+* [Linked Hypernyms Dataset](https://databus.dbpedia.org/propan/lhd/linked-hypernyms/2016.04.01)
+* [DBkWik](https://databus.dbpedia.org/sven-h/dbkwik/dbkwik/2019.09.02) dataset 
+
+> TODO: add more datasets to the list
 
 ## Upload external datasets or linksets
 * NOTE: we are working on a good process here, but it is easy to `grep 'sameAs'` from selected, vetted artifacts
-* see [geonames] (https://databus.dbpedia.org/kurzum/cleaned-data/geonames/2018.03.11)
+* see [geonames](https://databus.dbpedia.org/kurzum/cleaned-data/geonames/2018.03.11)
 * these can be loaded into the ID index and Fusion later. 
 
 ## DBpedia Strategic Objective: Health and quality of our core data and infrastructure
