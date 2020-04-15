@@ -13,7 +13,7 @@ You can improve the monthly releases in several ways:
 * Improve [Wikidata mappings](https://github.com/dbpedia/extraction-framework/blob/master/core/src/main/resources/wikidatar2r.json). This improvements will be reflected on the [Wikidata](https://databus.dbpedia.org/dbpedia/wikidata) data group (every artifact with `mapping`)
 * Improve the configuration for your language
 
-> TODO: add page which explains how to configure the extraction
+> TODO: add page which explains how to configure/improve a language
 
 ## Write tests for Minidumps
 
@@ -27,7 +27,7 @@ Here are several options on how you can improve the testing:
 * Create more [SHACL tests](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/resources/custom-shacl-tests.ttl) for on-commit minidump testing. 
 * Create more [DBpedia Specific tests](https://github.com/dbpedia/extraction-framework/blob/master/dump/src/test/resources/dbpedia-specific-ci-tests.ttl). These test are also used in the EvalMod later, which generates [test reports](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.html). [![Build Status](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.svg)](http://akswnc7.informatik.uni-leipzig.de/eval/repo//dbpedia/mappings/mappingbased-objects/2019.08.30/c6da97f40f67a6fce0f6a254ea122bb9a1d918725e088c1fadc7b0dbae0106c5.html) 
 
-Learn more on how to [Testing on Minidumps works](http://dev.dbpedia.org/Testing_on_Minidumps).
+Learn more on how [Testing on Minidumps](http://dev.dbpedia.org/Testing_on_Minidumps) works or how to [Integrate custom SHACL tests](http://dev.dbpedia.org/Integrating_SHACL_Tests).
 
 ## Contribute additional datasets
 
@@ -46,6 +46,9 @@ Many datasets have been already contributed by the community. Here are few examp
 * these can be loaded into the ID index and Fusion later. 
 
 ## DBpedia Strategic Objective: Health and quality of our core data and infrastructure
+
+> TODO: this section does not fit here, consider moving somewhere else or ...
+
 **Copied from an email to the DBpedia Board, as is**
 
 In most cases, data is currently fixed by consumers, people download data or query the endpoint and then massage the data locally. Mappings.dbpedia.org was a first successful attempt to establish a principle where you could contribute to data quality at the source. There is often still no comparable model in other datasets. Data is either read-only or tedious to edit like copying values manually or ad-hoc with bots, which is a bad reuse pattern compared to linking/mapping and automatic ingestion. Here is a list of steps we have designed in the last two years to elevate the mappings model:
