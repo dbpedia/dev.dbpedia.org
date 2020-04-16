@@ -1,7 +1,5 @@
 # Improve DBpedia 
 
-# Improve DBpedia 
-
 There are many ways to contribute and help improve DBpedia. Below you can find general ideas for contribution. In addition, feel free to post and ideas for improvement of DBpedia in the [DBpedia Forum](https://forum.dbpedia.org) and help us migrate ideas and approaches into this wiki.
 
 ## Fix monthly releases
