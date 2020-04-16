@@ -7,7 +7,6 @@ Debugging DIEF,Improve DBpedia,https://github.com/dbpedia/extraction-framework/b
 Testing on Minidumps,Improve DBpedia,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Testing_on_Minidumps.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Testing_on_Minidumps.md
 Integrating SHACL Tests,Improve DBpedia,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Integrating_SHACL_Tests.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Integrating_SHACL_Tests.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
-Language Configuration,Improve DBpedia,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Language_Configuration.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Language_Configuration.md
 MARVIN Release Bot,Improve DBpedia,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config/raw/master/README.md
 Query DBpedia,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Query_DBpedia.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Query_DBpedia.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md

@@ -88,4 +88,4 @@ All tests passed.
 ## Next Steps
 
 Great, you learned how to create a minidump and use it to test.
-Learn also [how to define custom SHACL test](http://dev.dbpedia.org/Writing_Tests) for validation.
+Learn also [how to define custom SHACL test](http://dev.dbpedia.org/Integrating_SHACL_Tests) for validation.
