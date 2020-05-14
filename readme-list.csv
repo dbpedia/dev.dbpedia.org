@@ -4,6 +4,7 @@ Download DBpedia,Download Data,https://github.com/dbpedia/dev.dbpedia.org/edit/m
 Setup DBpedia SPARQL Database,Download Data,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Setup_DBpedia_SPARQL_Database.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Setup_DBpedia_SPARQL_Database.md
 Improve DBpedia,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Improve_DBpedia.md
 Debugging DIEF,Improve DBpedia,https://github.com/dbpedia/extraction-framework/blob/master/DEBUG.md,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/DEBUG.md
+Language Specific Adaptation,Improve DBpedia,https://github.com/dbpedia/extraction-framework/blob/master/Adapting_Extractors_for_Different_Languages.md,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/Adapting_Extractors_for_Different_Languages.md
 Testing on Minidumps,Improve DBpedia,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Testing_on_Minidumps.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Testing_on_Minidumps.md
 Integrating SHACL Tests,Improve DBpedia,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Integrating_SHACL_Tests.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Integrating_SHACL_Tests.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
