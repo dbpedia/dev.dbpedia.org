@@ -140,3 +140,7 @@ Some tips on where to start:
 **DO NOT FORGET** to announce your improvements to the DBpedia core team (e.g. by reporting on [http://forum.dbpedia.org](http://forum.dbpedia.org)) so that we enable the particular extractor for your language (in case it is not yet enabled).
 
 **Thank you for your contribution!**
+
+> TODOs
+> - add more info on text config, integrate https://github.com/dbpedia/extraction-framework/wiki/Improving-CSS-selectors-for-NIF-extraction and https://github.com/dbpedia/extraction-framework/issues/535
+
