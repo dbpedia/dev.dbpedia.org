@@ -85,6 +85,15 @@ All tests passed.
 [INFO] ------------------------------------------------------------------------
 ```
 
+## Execute single SCALA tests
+
+To run a single test.
+
+```
+# Only runs the RDFUnit/SHACL test on minidump
+mvn test -Dsuites='org.dbpedia.extraction.dump.MinidumpTests @Minidumps with RDFUnit/SHACL'
+```
+
 ## Next Steps
 
 Great, you learned how to create a minidump and use it to test.
