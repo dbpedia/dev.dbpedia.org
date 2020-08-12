@@ -23,7 +23,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 	# generating the header of each page
     if [ -n "$repourl" ]
     then
-        includetext=`echo '**[Edit this page on Github]('$repourl')**'`
+        includetext=`echo '**[Edit this page with Git]('$repourl')**'`
     fi
     
 	# generate jekyll header
