@@ -8,7 +8,7 @@ Language Specific Adaptation,Improve DBpedia,https://github.com/dbpedia/dev.dbpe
 Testing on Minidumps,Improve DBpedia,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Testing_on_Minidumps.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Testing_on_Minidumps.md
 Integrating SHACL Tests,Improve DBpedia,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Integrating_SHACL_Tests.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Integrating_SHACL_Tests.md
 Mappings,Improve DBpedia,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappings.md
-MARVIN Release Bot,Improve DBpedia,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config/raw/master/README.md
+Getting Started,Improve DBpedia,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config,https://git.informatik.uni-leipzig.de/dbpedia-assoc/marvin-config/raw/master/README.md
 Query DBpedia,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Query_DBpedia.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Query_DBpedia.md
 Databus,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Databus.md
 Databus Client,Databus,https://github.com/dbpedia/databus-client/edit/master/README.md,https://raw.githubusercontent.com/dbpedia/databus-client/master/README.md
