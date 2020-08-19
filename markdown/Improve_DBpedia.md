@@ -27,6 +27,20 @@ Here are several options on how you can improve the testing:
 
 Learn more on how [Testing on Minidumps](http://dev.dbpedia.org/Testing_on_Minidumps) works or how to [Integrate custom SHACL tests](http://dev.dbpedia.org/Integrating_SHACL_Tests).
 
+## Improve the [DBpedia ontology](http://dbpedia.org/ontology/) with DBpedia Archivo
+
+Archivo automatically crawls and tests ontologies, so check out the [info-page](http://archivo.dbpedia.org/info?o=http://dbpedia.org/ontology/) of the DBpedia ontology for the results in each version. The red ✘ marks a failed test, and a click on it reveals the report with the problems.
+Since most tests are [SHACL-tests](https://www.w3.org/TR/shacl/) here is a quick tutorial how to evaluate [SHACL-reports](https://www.w3.org/TR/shacl/#dfn-validation-report):
+* Every instance of `sh:ValidationResult` is a failed test.
+* `sh:focusNode` points to the problematic Node.
+* `sh:resultPath` is the the property where the problem ocurred.
+* `sh:resultSeverity` is the severity of the problem:
+  * `sh:Info` is just an information and does not necessarily need a fix
+  * `sh:Warning` is a non-critical warning and should probably be fixed
+  * `sh:Violation` is a critical problem and should be fixed as soon as possible
+* `sh:sourceConstraintComponent` points out what the problem is: For example `sh:NodeKindConstraintComponent` means that the object of the `focusNode resultPath object` is not the right kind of value (e.g xsd:string instead of IRI) [read more](https://www.w3.org/TR/shacl/#dfn-constraint-component).
+* `sh:resultMessage` gives a short human readable explaination what the problem is.
+
 ## Contribute additional datasets
 
 We are open for data contributions from the community.
