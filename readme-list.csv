@@ -17,7 +17,7 @@ Databus Mods,Databus,https://github.com/dbpedia/databus-mods/edit/master/README.
 Databus Upload User Manual,Databus,https://github.com/dbpedia/databus-maven-plugin/wiki/User-Manual-v1.3,https://raw.githubusercontent.com/wiki/dbpedia/databus-maven-plugin/User-Manual-v1.3.md
 Databus Upload Client,Databus,https://github.com/dbpedia/databus-maven-plugin,https://raw.githubusercontent.com/dbpedia/databus-maven-plugin/master/README.md
 Extraction,,https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Data.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Extraction.md
-Extraction QuickStart,Extraction,https://github.com/dbpedia/extraction-framework/blob/master/QuickStart.md,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/QuickStart.md
+Extraction QuickStart,Extraction,https://github.com/dbpedia/extraction-framework/blob/master/documentation/quickstart.md,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/documentation/quickstart.md
 Mappingbased Extraction,Extraction,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Mappingbased_Extraction.md
 Post-Processing,Extraction,https://github.com/dbpedia/extraction-framework/blob/master/POSTPROCESSING.md,https://raw.githubusercontent.com/dbpedia/extraction-framework/master/POSTPROCESSING.md
 Applications (Self-Deploy),,,
