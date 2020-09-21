@@ -24,9 +24,8 @@ Applications (Self-Deploy),,,
 AutoIndex (Elastic Search),Applications (Self-Deploy),https://github.com/dice-group/autoindex,https://raw.githubusercontent.com/dice-group/autoindex/master/README.md
 DBpedia Lookup,Applications (Self-Deploy),https://github.com/dbpedia/lookup-application,https://raw.githubusercontent.com/dbpedia/lookup-application/master/README.md
 DBpedia Fusion,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Fusion.md
-ID and Clustering,DBpedia Fusion,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/ID_and_Clustering.md
 Global IRI Resolution Service,DBpedia Fusion,https://github.com/dbpedia/dbp-same-thing-service,https://raw.githubusercontent.com/dbpedia/dbp-same-thing-service/master/README.md
-DBpedia Archvio,DBpedia Fusion,https://github.com/dbpedia/Archivo,https://raw.githubusercontent.com/dbpedia/Archivo/master/README.md
+DBpedia Archvo,DBpedia Fusion,https://github.com/dbpedia/Archivo,https://raw.githubusercontent.com/dbpedia/Archivo/master/README.md
 DBpedia Live,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/Live_Services.md
 DBpedia Live Mirroring,DBpedia Live,https://github.com/dbpedia/dbpedia-live-mirror,https://raw.githubusercontent.com/dbpedia/dbpedia-live-mirror/master/README.md
 DBpedia Live Continuous Extraction,DBpedia Live,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Live_Continuous_Extraction.md
