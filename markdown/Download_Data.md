@@ -9,6 +9,14 @@ All databus SPARQL queries can be used ...
 * to [setup your own SPARQL Database with Docker](http://dev.dbpedia.org/Setup_DBpedia_SPARQL_Database) 
 * with future applications and dockers building on the databus
 
+The easiest way to download the files of the DBpedia lastest core release is to go to the [DBpedia Latest Core Collection](databus.dbpedia.org/dbpedia/collections/latest-core). Open the page and click on the *QUERY* tab. You will find a few lines of bash script that will download the collection files to your local machine. Here is the auto-generated bash script for the Latest Core collection:
+
+```
+query=$(curl -H "Accept:text/sparql" https://databus.dbpedia.org/dbpedia/collections/latest-core)
+files=$(curl -H "Accept: text/csv" --data-urlencode "query=${query}" https://databus.dbpedia.org/repo/sparql | tail -n+2 | sed 's/"//g')
+while IFS= read -r file ; do wget $file; done <<< "$files"
+```
+
 ## Databus SPARQL API 
 
 * URL: `https://databus.dbpedia.org/repo/sparql`
