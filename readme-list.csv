@@ -23,6 +23,7 @@ Post-Processing,Extraction,https://github.com/dbpedia/extraction-framework/blob/
 Applications (Self-Deploy),,,
 AutoIndex (Elastic Search),Applications (Self-Deploy),https://github.com/dice-group/autoindex,https://raw.githubusercontent.com/dice-group/autoindex/master/README.md
 DBpedia Lookup,Applications (Self-Deploy),https://github.com/dbpedia/lookup-application,https://raw.githubusercontent.com/dbpedia/lookup-application/master/README.md
+Dbpedia Spotlight,Applications (Self-Deploy),https://github.com/dbpedia/dev.dbpedia.org/edit/master/markdown/Dbpedia_Spotlight_dev.md,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Spotlight_dev.md
 DBpedia Fusion,,,https://raw.githubusercontent.com/dbpedia/dev.dbpedia.org/master/markdown/DBpedia_Fusion.md
 Global IRI Resolution Service,DBpedia Fusion,https://github.com/dbpedia/dbp-same-thing-service,https://raw.githubusercontent.com/dbpedia/dbp-same-thing-service/master/README.md
 DBpedia Archvo,DBpedia Fusion,https://github.com/dbpedia/Archivo,https://raw.githubusercontent.com/dbpedia/Archivo/master/README.md
