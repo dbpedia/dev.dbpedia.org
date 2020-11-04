@@ -1,9 +1,3 @@
----
-layout: default
-title: DBpedia Spotlight (deploy)
-permalink: /dbpedia_spotlight_server_deployment
----
-
 # DBpedia Spotlight Server Deployment
 
 This document explains how to set up the [demo web page](demo.dbpedia-spotlight.org) and how to set up the language models API. The following is a list of the most general elements to run Docker.
